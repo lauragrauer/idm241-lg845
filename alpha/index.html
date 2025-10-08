@@ -1,0 +1,71 @@
+<head>
+  <!-- Google Font: Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      padding: 5%;
+      background-color: #fafafa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h1.rules-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #4a148c; /* deep purple accent */
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 5px;
+    }
+
+    a {
+      color: #6a1b9a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+</style>
+<h1 class="rules-title">URL TO USER INTERFACE</h1>
+<a href="https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/" target="_blank" rel="noopener">
+  https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/
+</a>
+
+<h1 class="rules-title">TRIGGERS</h1>
+User is browsing multiple breeds and comes to one they are particularly interested in. The user would like to browse this breed's photos to reinforce their visual understanding.
+</body>
+
+<h1 class="rules-title">RULES</h1>
+<ul>
+  <li>When a thumbnail is activated, the main image swaps to the corresponding photo.</li>
+  <li>The selected thumbnail is marked as active (purple outline) and previously active thumbnail is cleared.</li>
+  <li>The down chevron scrolls/expands the thumbnail list if more images are hidden below.</li>
+</ul>
+
+<h1 class="rules-title">FEEDBACK</h1>
+<ul>
+  <li><b>SEE - </b>Main image is provided with a scroll up animation after the sub images are clicked on</li>
+  <li><b>HEAR - </b> Nothing in relation to the section provides sound. User may hear the click of their mouse when looking through the images</li>
+  <li><b>FEEL - </b>User will feel the click of their mouse or mousepad</li>
+</ul>
+
+<h1 class="rules-title">LOOPS & MODES (meta-rules)</h1>
+<ul>
+<li><b>LOOPS - </b> Users can repeatedly select thumbnails in any order; state always reflects the most recent selection.</li>
+<li><b>BOUNDS - </b> Image set is finite to the page’s gallery; the loop ends when the user navigates away.</li>
+<li><b>MODE - </b> Browsing mode (default) where the main image is view-only; no edit or zoom controls are present here.</li>
+<li><b>PROGRESSIVE DISCLOSURE - </b> The down arrow acts as a control to access the rest of the gallery when present.</li>
+<li><b>ERROR PREVENTION - </b> Only one thumbnail can be active at a time; invalid states are avoided by design.</li>
+</ul>
+
+<img src="dogslideshow.gif" alt="Dog Slideshow" style="max-width:100%; height:auto; display:block;">
