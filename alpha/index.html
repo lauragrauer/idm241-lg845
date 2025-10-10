@@ -42,33 +42,31 @@
 </a>
 
 <h1 class="rules-title">TRIGGERS</h1>
-User is browsing multiple breeds and comes to one they are particularly interested in. The user would like to browse this breed's photos to reinforce their visual understanding.
-To trigger the slideshow microinteraction, the user clicks either the photo of which they are interested, downwards arrow, or upwards arrow (if presented)
-</body>
+<b>The thumbnail image section is displayed to the right of the main photo on the left side of the page, showing multiple images.</b>
+<ul>
+  <li>Hover On</li>
+  <li>Hover Off</li>
+  <li>Click</li>
+</ul>
 
 <h1 class="rules-title">RULES</h1>
 <ul>
-  <li>When a thumbnail is activated, the main image swaps to the corresponding photo.</li>
-  <li>The selected thumbnail is marked as active (purple outline) and previously active thumbnail is cleared.</li>
-  <li>Thumbnail images are always displayed in a fixed square ratio, regardless of the source photo’s shape. </li>
-  <li>Main images scale to fit the display space while keeping their original aspect ratio.</li>
-  <li>The downward arrow scrolls/expands the thumbnail list if more images are hidden below.</li>
-</ul>
-
-<h1 class="rules-title">FEEDBACK</h1>
-<ul>
-  <li><b>SEE - </b>Main image is provided with a scroll up animation after the sub images are clicked on. The thumbnail associated with the main image also displays a purple outline.</li>
-  <li><b>HEAR - </b> Nothing in relation to the section provides sound. User may hear the click of their mouse when looking through the images</li>
-  <li><b>FEEL - </b>User will feel the click of their mouse or mousepad</li>
+  <b>Hover On</b>
+    <ul><li>Cursor changes from arrow to finger</li></ul>
+  <b>Hover Off</b>
+    <ul><li>Cursor changes back to an arrow</li></ul>
+  <b>Click</b>
+    <ul><li>When clicked, the thumbnail gains a purple outline to indicate it’s selected.</li></ul>
+    <ul><li>The previous active thumbnail loses its purple border</li></ul>
+    <ul><li>The thumbnail image scrolls up or down to display the selected photo</li></ul>
 </ul>
 
 <h1 class="rules-title">LOOPS & MODES (meta-rules)</h1>
 <ul>
-<li><b>LOOPS - </b> Users can repeatedly select thumbnails in any order; state always reflects the most recent selection.</li>
-<li><b>BOUNDS - </b> Image set is finite to the page’s gallery; the loop ends when the user navigates away.</li>
-<li><b>MODE - </b> Browsing mode (default) where the main image is view only; no editing controls are present here.</li>
-<li><b>PROGRESSIVE DISCLOSURE - </b> The down arrow acts as a control to access the rest of the gallery when present.</li>
-<li><b>ERROR PREVENTION - </b> Only one thumbnail can be active at a time; invalid states are avoided by design.</li>
+  <b>Loops</b>
+    <ul><li>None</li></ul>
+  <b>Modes</b>
+    <ul><li>None</li></ul>
 </ul>
 
 <img src="dogslides.gif"
