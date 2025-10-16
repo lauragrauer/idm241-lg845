@@ -1,5 +1,5 @@
 :root {
-  --thumb-size: 15%;
+  --thumb-size: 125px;
   --gap: 15px;
   --purple: #6504b5;
 }
@@ -9,9 +9,9 @@
   flex-direction: column;
   align-items: center;
   gap: var(--gap);
-  height: 70vh;
+  height: 375px;
   overflow: hidden;
-  padding-block: 5px;
+  padding-block: 10px;
 }
 
 .thumb {
@@ -34,7 +34,15 @@
   object-fit: cover;
 }
 
-/* active state */
+.thumb {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.thumb:active {
+  cursor: grabbing;
+  outline-color: var(--purple);
+}
 .thumb.active {
   outline-color: var(--purple); 
 }
@@ -43,6 +51,8 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #fafafa;
   color: #333;
+  padding: 5%;
+  letter-spacing: 0.03rem;
 }
 
 .container {
