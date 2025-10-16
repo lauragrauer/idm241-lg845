@@ -10,10 +10,10 @@ thumbs.forEach(btn => {
     const btnRect = btn.getBoundingClientRect();
 
     const offset = (btnRect.top + btnRect.height / 2) - (railRect.top + railRect.height / 2);
-    const extraOffset = 55; // slightly past center
+    const extraOffset = 45; 
     const targetScroll = rail.scrollTop + offset + extraOffset;
 
-    smoothScrollTo(rail, targetScroll, 400);
+    smoothScrollTo(rail, targetScroll, 350);
   });
 });
 
