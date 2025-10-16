@@ -51,20 +51,14 @@ body {
   color: #333;
   padding: 5%;
   letter-spacing: 0.03rem;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background: #fff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-weight: 100;
 }
 
 h1.rules-title {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 575;
+  letter-spacing: 0.1rem;
   margin-top: 30px;
   margin-bottom: 10px;
   color: #4a148c;
