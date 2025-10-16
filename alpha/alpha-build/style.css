@@ -1,17 +1,7 @@
 :root {
-  --thumb-size: 25%;
+  --thumb-size: 15%;
   --gap: 15px;
   --purple: #6504b5;
-}
-
-/* layout */
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f6f6f7;
 }
 
 .thumb-rail {
@@ -19,9 +9,9 @@ body {
   flex-direction: column;
   align-items: center;
   gap: var(--gap);
-  height: 50vh;
-  overflow-y: auto;
-  scrollbar-width: none;
+  height: 70vh;
+  overflow: hidden;
+  padding-block: 5px;
 }
 
 .thumb {
@@ -47,4 +37,35 @@ body {
 /* active state */
 .thumb.active {
   outline-color: var(--purple); 
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+h1.rules-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #4a148c;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+a {
+  color: #6a1b9a;
+  text-decoration: none;
+  font-weight: 500;
 }

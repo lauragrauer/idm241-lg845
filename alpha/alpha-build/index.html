@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,7 +10,57 @@
     <button class="thumb"><img src="dog-3.webp" alt="Dog 3"></button>
     <button class="thumb"><img src="dog-4.webp" alt="Dog 4"></button>
   </div>
-
   <script src="script.js"></script>
+<br>
+<h1 class="rules-title">URL TO USER INTERFACE</h1>
+<a href="https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/" target="_blank" rel="noopener">
+  https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/
+</a>
+
+<h1 class="rules-title">TRIGGERS</h1>
+<b>The thumbnail image section is displayed to the right of the main photo on the left side of the page, showing multiple images of the specific breed.</b>
+<ul>
+  <li>Hover On</li>
+  <li>Hover Off</li>
+  <li>Click</li>
+</ul>
+
+<h1 class="rules-title">RULES</h1>
+<ul>
+  <b>Hover On</b>
+    <ul><li>Cursor changes from arrow to finger.</li></ul>
+  <b>Hover Off</b>
+    <ul><li>Cursor changes back to an arrow.</li></ul>
+  <b>Click</b>
+    <ul><li>When a thumbnail is clicked, it becomes the active image.</li></ul>
+    <ul><li>The active thumbnail gains a purple outline.</li></ul>
+    <ul><li>The previously active thumbnail loses its purple border.</li></ul>
+    <ul><li>The main image area scrolls vertically (up or down) to align with the newly selected photo.</li></ul>
+</ul>
+
+<h1 class="rules-title">FEEDBACK</h1>
+<ul>
+  <b>Hover On</b>
+    <ul><li>The cursor visually changes to a hand icon, signaling that thumbnails are clickable.</li></ul>
+  <b>Hover Off</b>
+    <ul><li>The cursor returns to the standard arrow icon, indicating no active hover.</li></ul>
+  <b>Click</b>
+    <ul><li>When clicked, the thumbnail gains a purple outline to indicate it’s active.</li></ul>
+    <ul><li>The previous active thumbnail loses its purple border.</li></ul>
+    <ul><li>The main image visibly scrolls up or down, showing the newly chosen photo.</li></ul>
+</ul>
+
+<h1 class="rules-title">LOOPS & MODES (meta-rules)</h1>
+<ul>
+  <b>Loops</b>
+    <ul><li>None</li></ul>
+  <b>Modes</b>
+    <ul><li>None</li></ul>
+</ul>
+
+<img src="dogslides.gif"
+     alt="Dog Slideshow"
+     style="max-width:100%; height:auto; display:block; margin:0 auto;">
 </body>
 </html>
+
