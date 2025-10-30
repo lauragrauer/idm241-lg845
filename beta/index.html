@@ -13,21 +13,21 @@
 
   <h1 class="rules-title">TRIGGERS</h1>
   <ul>
-  <b>Object 1 - The user clicks on the large main image positioned slightly to the right of the page’s center.</b>
+  <b>Object 1 - Large main image positioned slightly to the right of the page’s center.</b>
   <ul>
     <li>Hover On</li>
     <li>Hover Off</li>
     <li>Click</li>
   </ul><br>
 
-  <b>Object 2 - The user clicks on the arrows located on the left-center and right-center side of the display.</b>
+  <b>Object 2 - Arrows located on the left-center and right-center side of the display.</b>
   <ul>
     <li>Hover On</li>
     <li>Hover Off</li>
     <li>Click</li>
   </ul><br>
 
-  <b>Object 3 - The user clicks on the x icon located at the top right area of the display.</b>
+  <b>Object 3 - The "X" close icon positioned in the top right corner of the display.</b>
   <ul>
     <li>Hover On</li>
     <li>Hover Off</li>
@@ -91,14 +91,14 @@
           <ul>
             <li>The main image smoothly enlarges into a centered lightbox view.</li>
             <li>A dark overlay appears behind the image, dimming the rest of the interface to direct the user’s attention solely to the active content.</li>
-            <li>Navigation arrows, dots, and the close (“X”) icon fade into view around the image.</li>
+            <li>Navigation arrows, dots, and the close (“X”) icon appear around the image, signaling that the user has entered a new interactive mode (the lightbox) with new available actions.</li>
           </ul>
       </ul><br>
 
     <b>Object 2</b>
       <ul>
         <b>Hover On</b>
-          <ul><li>The navigation arrows brighten slightly, signaling that they can be clicked.</li></ul>
+          <ul><li>When hovered, the cursor changes to a hand icon over the navigation arrows, indicating that they are clickable.</li></ul>
         <b>Click</b>
           <ul>
             <li>The image slides left or right to show the next or previous photo.</li>
@@ -110,10 +110,10 @@
     <b>Object 3</b>
       <ul>
         <b>Hover On</b>
-          <ul><li>The “X” icon brightens or inverts color, showing that it’s active.</li></ul>
+<ul><li>When hovered, a rectangular outline appears around the “X” icon, and the cursor changes to a hand icon, indicating it is clickable.</li></ul>
         <b>Click</b>
           <ul>
-            <li>The lightbox fades out and the background returns to its original color.</li>
+            <li>The lightbox fades out quickly and the background returns to its original color.</li>
             <li>All additional UI elements disappear, returning the user to the normal browsing state.</li>
           </ul>
       </ul>
@@ -122,9 +122,9 @@
   <h1 class="rules-title">LOOPS & MODES (meta-rules)</h1>
   <ul>
     <b>Loops</b>
-      <ul><li>The user can repeatedly open and close the lightbox or navigate through images indefinitely.</li></ul>
+      <ul><li>None</li></ul>
     <b>Modes</b>
-      <ul><li>In lightbox mode, navigation and exit controls become active; outside of it, they are hidden.</li></ul>
+      <ul><li>The lightbox acts as a mode that alters the user's interaction environment. Once activated by clicking the main image, the page dims, background elements become inactive, and new modules such as navigation arrows and a close (“X”) icon appear.</li></ul>
   </ul>
 
 <body>
