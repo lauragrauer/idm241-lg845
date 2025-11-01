@@ -55,3 +55,10 @@ button.thumb {
   background: none;
   padding: 0;
 }
+
+.divider {
+  border: none;
+  border-top: 3px dashed #d1c4e9;  /* light purple line */
+  width: 80%;
+  margin: 40px auto;
+}
