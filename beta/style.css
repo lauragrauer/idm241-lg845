@@ -41,7 +41,6 @@
 }
 
 .thumb-title {
-  margin-top: 8px;
   font-size: 0.95rem;
   font-weight: 500;
   color: #333;
@@ -53,7 +52,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: #fafafa;
   color: #333;
-  padding: 12vw;
+  padding: 5vh 12vw;
   letter-spacing: 0.03rem;
   font-weight: 100;
 }
