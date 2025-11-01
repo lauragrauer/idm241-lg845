@@ -2,162 +2,129 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="style.css" />
-</head>
   <script src="script.js"></script>
-  <br>
-
+</head>
+<body>
   <h1 class="rules-title">URL TO USER INTERFACE</h1>
-  <a href="https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/" target="_blank" rel="noopener">
-    https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/
-  </a>
+  <section>
+    <a href="https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/" target="_blank" rel="noopener">
+      https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/
+    </a>
+  </section>
 
   <h1 class="rules-title">TRIGGERS</h1>
-  <ul>
-  <b>Object 1 - Main image positioned slightly to the right of the page’s center.</b>
-  <ul>
+  <section>
+    <span class="object-title">Object 1 - Main image positioned slightly to the right of the page’s center.</span>
     <li>Hover On</li>
     <li>Hover Off</li>
     <li>Click</li>
-  </ul><br>
 
-  <b>Object 2 - Arrows located on the left-center and right-center side of the display.</b>
-  <ul>
+    <span class="object-title">Object 2 - Arrows located on the left-center and right-center side of the display.</span>
     <li>Hover On</li>
     <li>Hover Off</li>
     <li>Click</li>
-  </ul><br>
 
-  <b>Object 3 - The "X" close icon positioned in the top right corner of the display.</b>
-  <ul>
+    <span class="object-title">Object 3 - The "X" close icon positioned in the top right corner of the display.</span>
     <li>Hover On</li>
     <li>Hover Off</li>
     <li>Click</li>
-  </ul></ul>
+  </section>
 
   <h1 class="rules-title">RULES</h1>
-  <ul>
-    <b>Object 1</b>
-      <ul>
-        <b>Hover On</b>
-          <ul><li>The cursor visually changes to a hand icon, signaling that the main image is clickable.</li></ul>
-        <b>Hover Off</b>
-          <ul><li>Cursor changes back to an arrow.</li></ul>
-        <b>Click</b>
-          <ul>
-            <li>When the main image is clicked, it moves up and down and up by 10 degrees (y-axis) in 0.15 seconds. </li>
-            <li>The active image enlarges and centers on the screen for focused viewing.</li>
-            <li>A black overlay of 80% opacity appears behind the image</li>
-            <li>Navigation arrows and a close (“X”) icon appear for browsing and exiting the lightbox.</li>
-          </ul>
-      </ul><br>
+  <section>
+    <span class="object-title">Object 1</span>
+    <b>Hover On</b>
+    <li>The cursor visually changes to a hand icon, signaling that the main image is clickable.</li>
+    <b>Hover Off</b>
+    <li>Cursor changes back to an arrow.</li>
+    <b>Click</b>
+    <li>When the main image is clicked, it moves up and down and up by 10 degrees (y-axis) in 0.15 seconds.</li>
+    <li>The active image enlarges and centers on the screen for focused viewing.</li>
+    <li>A black overlay of 80% opacity appears behind the image.</li>
+    <li>Navigation arrows and a close (“X”) icon appear for browsing and exiting the lightbox.</li>
 
-    <b>Object 2</b>
-      <ul>
-        <b>Hover On</b>
-          <ul><li>When hovered, the cursor changes to a hand icon over the navigation arrow paws, indicating that they are clickable.</li></ul>
-          <ul><li>The navigation arrow paw rotates by 15 degrees when hovered on.</li></ul>
-        <b>Hover Off</b>
-          <ul><li>Cursor changes back to an arrow.</li></ul>
-          <ul><li>The navigation arrow paw rotates by -15 degrees.</li></ul>
-        <b>Click</b>
-          <ul>
-            <li>Clicking the right arrow advances to the next image in the sequence.</li>
-            <li>Clicking the left arrow returns to the previous image.</li>
-            <li>The small indicator dots below the image update to show which photo is currently active.</li>
-            <li>Only one image is displayed at a time. Each new image replaces the previous one smoothly.</li>
-          </ul>
-      </ul><br>
+    <span class="object-title">Object 2</span>
+    <b>Hover On</b>
+    <li>When hovered, the cursor changes to a hand icon over the navigation arrow paws, indicating that they are clickable.</li>
+    <li>The navigation arrow paw rotates by 15 degrees when hovered on.</li>
+    <b>Hover Off</b>
+    <li>Cursor changes back to an arrow.</li>
+    <li>The navigation arrow paw rotates by -15 degrees.</li>
+    <b>Click</b>
+    <li>Clicking the right arrow advances to the next image in the sequence.</li>
+    <li>Clicking the left arrow returns to the previous image.</li>
+    <li>The small indicator dots below the image update to show which photo is currently active.</li>
+    <li>Only one image is displayed at a time. Each new image replaces the previous one smoothly.</li>
 
-    <b>Object 3</b>
-      <ul>
-        <b>Hover On</b>
-<ul><li>When hovered, the X icon rotates by 15 degrees.</li></ul>
-<li>The cursor visually changes to a hand icon, signaling that the main image is clickable.</li></ul>
-        <b>Hover Off</b>
-          <ul><li>Cursor changes back to an arrow.</li></ul>
-        <b>Click</b>
-          <ul>
-            <li>The lightbox fades out, and the background lightens back to white.</li>
-            <li>The user sees the original page layout return to view instantly.</li>
-            <li>All additional lightbox UI elements (arrows, dots, and “X”) disappear at once for a clean exit.</li>
-          </ul>
-      </ul>
-  </ul>
+    <span class="object-title">Object 3</span>
+    <b>Hover On</b>
+    <li>When hovered, the X icon rotates by 15 degrees.</li>
+    <li>The cursor visually changes to a hand icon, signaling that the main image is clickable.</li>
+    <b>Hover Off</b>
+    <li>Cursor changes back to an arrow.</li>
+    <b>Click</b>
+    <li>The lightbox fades out, and the background lightens back to white.</li>
+    <li>The user sees the original page layout return instantly.</li>
+    <li>All additional lightbox UI elements disappear at once for a clean exit.</li>
+  </section>
 
   <h1 class="rules-title">FEEDBACK</h1>
-  <ul>
-    <b>Object 1</b>
-      <ul>
-        <b>Hover On</b>
-          <ul><li>The cursor visually changes to a hand icon, signaling that the main image is clickable.</li></ul>
-        <b>Hover Off</b>
-          <ul><li>Cursor changes back to an arrow.</li></ul>
-        <b>Click</b>
-          <ul>
-            <li>The image moves up and down and up by 10 degrees (y-axis) in 0.15 seconds. prior to the enlargement.</li>
-            <li>The main image smoothly enlarges into a centered view in 0.5 seconds.</li>
-            <li>A dark overlay appears behind the image with 80% opacity, #000000 color, dimming the rest of the interface to direct the user’s attention solely to the active content.</li>
-            <li>Navigation arrows, dots, and the close (“X”) icon fade in around the image in 0.15 seconds, signaling that the user has entered a new interactive mode (the light box) with new available actions.</li>
-          </ul>
-      </ul><br>
+  <section>
+    <span class="object-title">Object 1</span>
+    <b>Hover On</b>
+    <li>The cursor visually changes to a hand icon, signaling that the main image is clickable.</li>
+    <b>Hover Off</b>
+    <li>Cursor changes back to an arrow.</li>
+    <b>Click</b>
+    <li>The image moves up and down and up by 10 degrees (y-axis) in 0.15 seconds before enlarging.</li>
+    <li>The main image smoothly enlarges into a centered view in 0.5 seconds.</li>
+    <li>A dark overlay appears behind the image with 80% opacity (#000000).</li>
+    <li>Navigation arrows, dots, and the close (“X”) icon fade in around the image in 0.15 seconds.</li>
 
-    <b>Object 2</b>
-      <ul>
-        <b>Hover On</b>
-          <ul><li>When hovered, the cursor changes to a hand icon over the navigation arrow paws, indicating that they are clickable.</li></ul>
-          <ul><li>The navigation arrow paw rotates by 15 degrees when hovered on.</li></ul>
-        <b>Hover Off</b>
-          <ul><li>Cursor changes back to an arrow.</li></ul>
-        <b>Click</b>
-          <ul>
-            <li>The image slides left or right to show the next or previous photo in 0.5 seconds. The next image in the transition slides to replace the previous image in 0.5seconds alongside it.</li>
-            <li>The active pagination dot updates to match the new image.</li>
-            <li>When clicking the navigation arrow paw, it moves up and down by 10 degrees (y-axis) in 0.15 seconds.</li>
-          </ul>
-      </ul><br>
+    <span class="object-title">Object 2</span>
+    <b>Hover On</b>
+    <li>When hovered, the cursor changes to a hand icon over the navigation arrow paws.</li>
+    <li>The navigation arrow paw rotates by 15 degrees when hovered on.</li>
+    <b>Hover Off</b>
+    <li>Cursor changes back to an arrow.</li>
+    <b>Click</b>
+    <li>The image slides left or right to show the next or previous photo in 0.5 seconds.</li>
+    <li>The active pagination dot updates to match the new image.</li>
+    <li>When clicking the navigation arrow paw, it moves up and down by 10 degrees (y-axis) in 0.15 seconds.</li>
 
-    <b>Object 3</b>
-      <ul>
-        <b>Hover On</b>
-<ul><li>When hovered, the X icon rotates by 15 degrees.</li></ul>
-<li>The cursor visually changes to a hand icon, signaling that the main image is clickable.</li></ul>
-        <b>Hover Off</b>
-          <ul><li>Cursor changes back to an arrow.</li></ul>
-        <b>Click</b>
-          <ul>
-            <li>The X icon moves up and down by 10 degrees (y-axis) in 0.15 seconds.</li>
-          </ul></li>
-            <li>The dim black background fades out in 0.5 seconds and the background returns to its original color.</li>
-            <li>The image shrinks back to its original shape in 0.5 seconds and moves slightly back to the right.</li>
-            <li>All additional UI elements disappear, returning the user to the normal browsing state.</li>
-          </ul>
-      </ul>
-  </ul>
+    <span class="object-title">Object 3</span>
+    <b>Hover On</b>
+    <li>When hovered, the X icon rotates by 15 degrees.</li>
+    <li>The cursor visually changes to a hand icon.</li>
+    <b>Hover Off</b>
+    <li>Cursor changes back to an arrow.</li>
+    <b>Click</b>
+    <li>The X icon moves up and down by 10 degrees (y-axis) in 0.15 seconds.</li>
+    <li>The dim black background fades out in 0.5 seconds, returning to its original color.</li>
+    <li>The image shrinks back to its original shape in 0.5 seconds.</li>
+    <li>All additional UI elements disappear, returning the user to normal browsing.</li>
+  </section>
 
   <h1 class="rules-title">LOOPS & MODES (meta-rules)</h1>
-  <ul>
-    <b>Loops</b>
-      <ul><li>None</li></ul>
-    <b>Modes</b>
-      <ul><li>The lightbox acts as a mode that alters the user's interaction environment. Once activated by clicking the main image, the page dims, the main image increases in size and centers in the middle, background elements become inactive, and new modules such as navigation arrows and a close (“X”) icon appear.</li></ul>
-  </ul>
+  <section>
+    <span class="object-title">Loops</span>
+    <li>None</li>
+    <span class="object-title">Modes</span>
+    <li>The lightbox acts as a mode that alters the user's interaction environment. Once activated by clicking the main image, the page dims, the main image increases in size, background elements become inactive, and new modules such as navigation arrows and a close (“X”) icon appear.</li>
+  </section>
 
   <h1 class="rules-title">UPDATED OBJECTS</h1>
-  <div class="thumb-rail">
-    <div class="thumb-item">
-      <button class="thumb active"><img src="object1.gif" alt="Object 1"></button>
-      <p class="thumb-title">Object 1</p>
-    </div>
+        <button class="thumb active"><img src="object1.gif" alt="Object 1"></button>
+        <p class="thumb-title">Object 1</p>
+      </div>
 
-    <div class="thumb-item">
-      <button class="thumb"><img src="object2.gif" alt="Object 2"></button>
-      <p class="thumb-title">Object 2</p>
-    </div>
+        <button class="thumb"><img src="object2.gif" alt="Object 2"></button>
+        <p class="thumb-title">Object 2</p>
+      </div>
 
-    <div class="thumb-item">
-      <button class="thumb"><img src="object3.gif" alt="Object 3"></button>
-      <p class="thumb-title">Object 3</p>
+        <button class="thumb"><img src="object3.gif" alt="Object 3"></button>
+        <p class="thumb-title">Object 3</p>
+      </div>
     </div>
-  </div>
 </body>
 </html>
