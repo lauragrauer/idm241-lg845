@@ -44,3 +44,14 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.03rem;
 }
+
+.thumb img {
+  display: block;
+  border: none;
+}
+
+button.thumb {
+  border: none;
+  background: none;
+  padding: 0;
+}
