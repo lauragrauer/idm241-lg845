@@ -68,10 +68,10 @@
     <li>When the main image is clicked, it moves up and down and up by 10 degrees
        (y-axis) in 0.15 seconds.</li>
     <li>The active image enlarges and centers on the screen for focused 
-      viewing.</li>
+      viewing within 0.5 seconds.</li>
     <li>A black overlay of 80% opacity (#000000) fades in within 0.5 seconds.</li>
-    <li>Navigation arrows and a close (“X”) icon appear for browsing and exiting 
-      the lightbox.</li>
+    <li>Navigation arrows and a close (“X”) icon fade in for browsing and exiting 
+      the lightbox in 0.15 seconds</li>
     <hr class="divider">
 
 
@@ -79,15 +79,16 @@
 <span class="bold">Hover On</span>
     <li>When hovered, the cursor changes to a hand icon over the navigation arrow
        paws, indicating that they are clickable.</li>
-    <li>The navigation arrow paw rotates by 15 degrees when hovered on.</li><br>
+    <li>The navigation arrow paw rotates by 15 degrees when hovered on in 0.35 seconds.</li><br>
 
 <span class="bold">Hover Off</span>
     <li>Cursor changes back to an arrow.</li>
-    <li>The navigation arrow paw rotates by -15 degrees.</li><br>
+    <li>The navigation arrow paw rotates back to its original state in 0.35 seconds.</li><br>
   
 <span class="bold">Click</span>
 <li>Clicking the right arrow paw transitions to the next image in the sequence, as 
-  the current image slides off to the left in 0.5 seconds.</li>
+  the current image slides off to the left in 0.5 seconds. </li>
+<li>The left paw arrow will only be active and visible if it has a previous image to return to.</li>
 <li>Clicking the left arrow paw returns to the previous image, as the current image
    slides off to the right in 0.5 seconds.</li>
     <li>The indicator dots beneath the image change from white to purple in 0.15 
@@ -143,12 +144,13 @@
 
     <span class="object-title">Object 2</span>
 <span class="bold">Hover On</span>
-    <li>When hovered, the cursor changes to a hand icon over the navigation 
-      arrow paws.</li>
-    <li>The navigation arrow paw rotates by 15 degrees when hovered on.</li><br>
+    <li>When hovered, the cursor changes to a hand icon over the navigation arrow
+       paws, indicating that they are clickable.</li>
+    <li>The navigation arrow paw rotates by 15 degrees when hovered on in 0.35 seconds.</li><br>
 
 <span class="bold">Hover Off</span>
-    <li>Cursor changes back to an arrow.</li><br>
+    <li>Cursor changes back to an arrow.</li>
+    <li>The navigation arrow paw rotates back to its original state in 0.35 seconds.</li><br>
 
 <span class="bold">Click</span>
 <li>Clicking the right arrow paw transitions to the next image in the sequence, 
