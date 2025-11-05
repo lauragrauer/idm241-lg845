@@ -1,3 +1,6 @@
+/* ===============================
+   GLOBAL VARIABLES
+=================================*/
 :root {
   --purple: #6504b5;
   --bg: #f8f8f8;
@@ -7,17 +10,31 @@
   --transition-slow: 0.5s ease;
 }
 
+/* ===============================
+   BODY / PAGE LAYOUT
+=================================*/
 body {
-  font-family: "Montserrat", sans-serif;
-  background: var(--bg);
+  font-family: "Nunito", "Montserrat", sans-serif;
+  background: #EEEDF1;
+  color: #333;
+  margin: 0;
+  letter-spacing: 0.03rem;
+  font-weight: 100;
+  line-height: 1.4em;
+}
+
+/* container that centers the gallery on top */
+.gallery-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 0;
+  padding: 6vh 0;
+  background: var(--bg);
 }
 
-/* MAIN GALLERY */
+/* ===============================
+   GALLERY
+=================================*/
 .gallery {
   display: flex;
   align-items: center;
@@ -28,6 +45,7 @@ body {
   padding: 24px;
   gap: 24px;
   max-width: 950px;
+  margin: 0 auto;
 }
 
 .main-image {
@@ -73,7 +91,9 @@ body {
   border-color: var(--purple);
 }
 
-/* OVERLAY */
+/* ===============================
+   LIGHTBOX OVERLAY
+=================================*/
 .overlay {
   position: fixed;
   inset: 0;
@@ -201,4 +221,89 @@ body {
   40%  { transform: scale(0.85) translateY(15px) rotate(12deg); }
   70%  { transform: scale(1.1) translateY(-6px) rotate(-8deg); }
   100% { transform: scale(1) translateY(0) rotate(0deg); }
+}
+
+/* ===============================
+   TEXT / DOCUMENTATION BELOW
+=================================*/
+main {
+  padding: 5vh 12vw;
+}
+
+section {
+  background-color: #FFFFFF;
+  padding: 2em 5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  section {
+    padding: 2em 3em;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 1.2em 2em;
+  }
+}
+
+h1.rules-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #4a148c;
+  border-bottom: 3px solid #d1c4e9;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+  line-height: 1.3em;
+}
+
+a {
+  color: #6a1b9a;
+  text-decoration: none;
+  font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.object-title {
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  font-size: 1.25rem;
+  margin-left: -20px;
+  font-weight: 800;
+  color: #6a1b9a;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
+}
+
+.divider {
+  border: none;
+  border-top: 3px dashed #d1c4e9;
+  width: 80%;
+  margin: 40px auto;
+}
+
+.object-desc {
+  color: #a380b8;
+  font-weight: 1000;
+  margin-left: -20px;
+}
+
+.bold {
+  font-weight: 1000;
+  font-size: 1.1rem;
+  color: #a380b8;
+  margin-left: -20px;
 }

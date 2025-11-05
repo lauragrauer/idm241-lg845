@@ -3,10 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dog Gallery Lightbox</title>
+  <title>Dog Gallery Lightbox + Microinteraction Report</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <!-- ===================== GALLERY SECTION ===================== -->
   <div class="gallery">
     <div class="main-image" id="mainImage">
       <img src="/alpha/build/dog-1.webp" alt="Dog1" />
@@ -20,7 +28,7 @@
     </div>
   </div>
 
-  <!-- Lightbox Overlay -->
+  <!-- ===================== LIGHTBOX OVERLAY ===================== -->
   <div class="overlay" id="overlay">
     <button class="close-btn" id="closeBtn">✕</button>
 
@@ -46,6 +54,115 @@
     </div>
   </div>
 
+
+  <!-- ===================== MICROINTERACTION WRITE-UP ===================== -->
+  <main class="microinteraction">
+    <h1 class="rules-title">URL TO USER INTERFACE</h1>
+    <section>
+      <a href="https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/"
+         target="_blank" rel="noopener">
+        https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/
+      </a>
+    </section>
+
+
+    <h1 class="rules-title">TRIGGERS</h1>
+    <section>
+      <span class="object-title">Object 1 - </span>
+      <span class="object-desc">Main image positioned slightly to the right of the page’s center.</span>
+      <li>Hover On</li>
+      <li>Hover Off</li>
+      <li>Click</li>
+      <hr class="divider">
+
+      <span class="object-title">Object 2 - </span>
+      <span class="object-desc">Arrows located on the left-center and right-center side of the display.</span>
+      <li>Hover On</li>
+      <li>Hover Off</li>
+      <li>Click</li>
+      <hr class="divider">
+
+      <span class="object-title">Object 3 - </span>
+      <span class="object-desc">The "X" close icon positioned in the top right corner of the display.</span>
+      <li>Hover On</li>
+      <li>Hover Off</li>
+      <li>Click</li>
+    </section>
+
+
+    <h1 class="rules-title">RULES</h1>
+    <section>
+      <span class="object-title">Object 1</span>
+      <span class="bold">Hover On</span>
+      <li>Cursor changes to a hand icon, signaling the image is clickable.</li><br>
+
+      <span class="bold">Hover Off</span>
+      <li>Cursor returns to default arrow.</li><br>
+
+      <span class="bold">Click</span>
+      <li>Main image enlarges and centers in 0.5s with a dark overlay fading in.</li>
+      <li>Navigation arrows and close icon fade in within 0.15s.</li>
+      <hr class="divider">
+
+      <span class="object-title">Object 2</span>
+      <span class="bold">Hover On</span>
+      <li>Navigation paw rotates 15° in 0.35s; cursor changes to hand.</li><br>
+
+      <span class="bold">Hover Off</span>
+      <li>Paw returns to original position in 0.35s.</li><br>
+
+      <span class="bold">Click</span>
+      <li>Right arrow advances to next image (slides left in 0.5s). Left arrow goes back (slides right in 0.5s).</li>
+      <li>Indicator dots update to reflect active image.</li>
+      <hr class="divider">
+
+      <span class="object-title">Object 3</span>
+      <span class="bold">Hover On</span>
+      <li>Cursor changes to hand icon.</li><br>
+
+      <span class="bold">Hover Off</span>
+      <li>Cursor returns to default arrow.</li><br>
+
+      <span class="bold">Click</span>
+      <li>X icon rotates 15° and moves slightly along y-axis (0.15s), fading out the overlay and restoring original view.</li>
+    </section>
+
+
+    <h1 class="rules-title">FEEDBACK</h1>
+    <section>
+      <li>Hovering or clicking gives motion feedback — rotations, fades, and image transitions reinforce interactivity.</li>
+    </section>
+
+
+    <h1 class="rules-title">LOOPS & MODES (Meta-Rules)</h1>
+    <section>
+      <li>The lightbox acts as a mode overlaying the gallery. It dims the background, disables other interactions, and introduces navigation controls until closed.</li>
+    </section>
+
+
+    <h1 class="rules-title">UPDATED OBJECTS</h1>
+    <section>
+      <span class="object-title" style="display:block; text-align:center;">Object 1</span>
+      <img src="object1.gif" alt="Object 1"
+          style="display:block; margin:auto; border:2px solid #d1c4e9; 
+          border-radius:10px; padding:4px; max-width:100%; height:auto;">
+      <hr class="divider">
+
+      <span class="object-title" style="display:block; text-align:center;">Object 2</span>
+      <img src="object2.gif" alt="Object 2"
+          style="display:block; margin:auto; border:2px solid #d1c4e9; 
+          border-radius:10px; padding:4px; max-width:100%; height:auto;">
+      <hr class="divider">
+
+      <span class="object-title" style="display:block; text-align:center;">Object 3</span>
+      <img src="object3.gif" alt="Object 3"
+          style="display:block; margin:auto; border:2px solid #d1c4e9; 
+          border-radius:10px; padding:4px; max-width:100%; height:auto;">
+      <hr class="divider">
+    </section>
+  </main>
+
+  <!-- ===================== SCRIPTS ===================== -->
   <script src="script.js"></script>
 </body>
 </html>
