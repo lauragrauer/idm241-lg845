@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dog Gallery Lightbox</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="gallery">
+    <div class="main-image" id="mainImage">
+      <img src="https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg" alt="Dog" />
+    </div>
+
+    <div class="thumbs" id="thumbs">
+      <img class="active" src="https://cdn2.thedogapi.com/images/BJa4kxc4X.jpg" alt="dog1" />
+      <img src="https://cdn2.thedogapi.com/images/B1uW7l5VX.jpg" alt="dog2" />
+      <img src="https://cdn2.thedogapi.com/images/HkNS3gqEm.jpg" alt="dog3" />
+      <img src="https://cdn2.thedogapi.com/images/Sy29-gqEX.jpg" alt="dog4" />
+    </div>
+  </div>
+
+  <!-- Lightbox Overlay -->
+  <div class="overlay" id="overlay">
+    <button class="close-btn" id="closeBtn">✕</button>
+
+    <button class="paw left" id="leftArrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <path fill="#6504b5" d="M45.2 12L22 32l23.2 20a2 2 0 01-2.6 3L18 33a2 2 0 010-3l24.6-22a2 2 0 012.6 3z"/>
+      </svg>
+    </button>
+
+    <img src="" alt="Expanded view" id="overlayImg" />
+
+    <button class="paw right" id="rightArrow">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <path fill="#6504b5" d="M18.8 52L42 32 18.8 12a2 2 0 012.6-3L46 30a2 2 0 010 3L21.4 55a2 2 0 01-2.6-3z"/>
+      </svg>
+    </button>
+
+    <div class="dots" id="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
