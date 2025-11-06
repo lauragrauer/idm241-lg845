@@ -107,7 +107,7 @@ body {
 
 .overlay.active {
   display: flex;
-  animation: fadeIn var(--transition-slow);
+  animation: fadeIn var(--transition-mid);
 }
 
 @keyframes fadeIn {
@@ -309,3 +309,4 @@ a {
   color: #a380b8;
   margin-left: -20px;
 }
+

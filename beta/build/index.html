@@ -102,13 +102,13 @@
 
       <span class="object-title">Object 2</span>
       <span class="bold">Hover On</span>
-      <li>Navigation paw rotates 15° in 0.35s; cursor changes to hand.</li><br>
+      <li>Cursor changes to hand cursor.</li><br>
 
       <span class="bold">Hover Off</span>
-      <li>Paw returns to original position in 0.35s.</li><br>
+      <li>Cursor changes back to pointer.</li><br>
 
       <span class="bold">Click</span>
-      <li>Right arrow advances to next image (slides left in 0.5s). Left arrow goes back (slides right in 0.5s).</li>
+      <li>Next image replaces and displays in 0.2s</li>
       <li>Indicator dots update to reflect active image.</li>
       <hr class="divider">
 
@@ -124,10 +124,65 @@
     </section>
 
 
-    <h1 class="rules-title">FEEDBACK</h1>
-    <section>
-      <li>Hovering or clicking gives motion feedback — rotations, fades, and image transitions reinforce interactivity.</li>
-    </section>
+  <h1 class="rules-title">FEEDBACK</h1>
+
+  <section>
+<span class="bold">Hover On</span>
+    <li>The cursor visually changes to a hand icon, signaling that the main image
+       is clickable.</li><br>
+
+<span class="bold">Hover Off</span>
+    <li>Cursor changes back to an arrow.</li>
+    <li>The navigation arrow paw rotates by -15 degrees.</li><br>
+
+
+<span class="bold">Click</span>
+    <li>The image moves up and down and up by 10 degrees (y-axis) in 0.15 seconds 
+      before enlarging.</li>
+    <li>The main image smoothly enlarges into a centered view in 0.5 seconds.</li>
+    <li>A dark overlay fades in behind the image with 80% opacity (#000000) in 0.5
+       seconds.</li>
+    <li>Navigation arrows, dots, and the close (“X”) icon fade in around the image 
+      in 0.15 seconds.</li>
+    <hr class="divider">
+
+
+    <span class="object-title">Object 2</span>
+<span class="bold">Hover On</span>
+    <li>When hovered, the cursor changes to a hand icon over the navigation arrow
+       paws, indicating that they are clickable.</li>
+
+<span class="bold">Hover Off</span>
+    <li>Cursor changes back to an arrow.</li>
+
+<span class="bold">Click</span>
+<li>Clicking the right arrow paw transitions to the next image in the sequence, 
+  as the current image slides off to the left in 0.5 seconds.</li>
+<li>Clicking the left arrow paw returns to the previous image, as the current 
+  image slides off to the right in 0.5 seconds.</li>
+    <li>The indicator dots beneath the image change from white to purple in 0.15 
+      seconds to indicate the active photo.</li>
+    <li>When clicking the navigation arrow paw, it moves up and down by 10 degrees
+       (y-axis) in 0.15 seconds.</li>
+    <hr class="divider">
+
+
+    <span class="object-title">Object 3</span>
+<span class="bold">Hover On</span>
+    <li>The cursor visually changes to a hand icon.</li><br>
+
+<span class="bold">Hover Off</span>
+    <li>Cursor changes back to an arrow.</li><br>
+
+<span class="bold">Click</span>
+    <li>The X icon moves vertically by 10 degrees along the y-axis and rotates 15 degrees
+       within 0.15 seconds.</li>
+    <li>The dim 80% opacity black background fades out in 0.5 seconds, returning to
+    its original color.</li>
+    <li>The image shrinks back to its original shape in 0.5 seconds.</li>
+   <li>The dark background overlay, navigation arrows, indicator dots, and the
+       X icon fade out within 0.25 seconds, returning the interface to its original state.</li>
+  </section>
 
 
     <h1 class="rules-title">LOOPS & MODES (Meta-Rules)</h1>
