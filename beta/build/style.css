@@ -150,13 +150,14 @@ body {
   transition: transform var(--transition-mid);
 }
 
-.paw svg {
+.paw img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
   transition: transform var(--transition-mid);
 }
 
-.paw:hover svg {
+.paw:hover img {
   transform: rotate(15deg);
 }
 
@@ -164,7 +165,7 @@ body {
 .paw.right { right: 4%; }
 
 /* Paw click bounce animation */
-.paw.clicked svg {
+.paw.clicked img {
   animation: pawBounce 0.6s cubic-bezier(0.25, 1, 0.3, 1);
 }
 
@@ -174,6 +175,7 @@ body {
   70%  { transform: scale(1.1) translateY(-6px) rotate(-8deg); }
   100% { transform: scale(1) translateY(0) rotate(0deg); }
 }
+
 
 /* DOTS */
 .dots {
