@@ -160,6 +160,14 @@ body {
   to { opacity: 1; backdrop-filter: blur(4px); }
 }
 
+/* ===============================
+   LIGHTBOX FADE OUT (on close)
+=================================*/
+.overlay.fade-out {
+  animation: overlayFadeOut 0.5s ease forwards;
+  pointer-events: none;
+}
+
 @keyframes overlayFadeOut {
   from { opacity: 1; backdrop-filter: blur(4px); }
   to { opacity: 0; backdrop-filter: blur(0px); }
