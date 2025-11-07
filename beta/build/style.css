@@ -114,22 +114,22 @@ body {
   z-index: 100;
   opacity: 0;
   transition: opacity var(--transition-mid);
+  pointer-events: none; /* prevents clicks everywhere by default */
 }
 
+/* Activate visible overlay */
 .overlay.active {
   display: flex;
   opacity: 1;
   animation: overlayFadeIn var(--transition-mid) forwards;
+  pointer-events: auto; /* re-enable only for child elements */
 }
 
-@keyframes overlayFadeIn {
-  from { opacity: 0; backdrop-filter: blur(0px); }
-  to { opacity: 1; backdrop-filter: blur(4px); }
-}
-
-@keyframes overlayFadeOut {
-  from { opacity: 1; backdrop-filter: blur(4px); }
-  to { opacity: 0; backdrop-filter: blur(0px); }
+/* Prevent accidental close — only X is clickable */
+.overlay img,
+.paw,
+.close-btn {
+  pointer-events: auto; /* these still clickable */
 }
 
 /* Main image in overlay — same ratio & smooth scaling */
@@ -153,15 +153,16 @@ body {
   animation: zoomOut 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+@keyframes overlayFadeIn {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(4px); }
 }
 
-@keyframes zoomOut {
-  from { transform: scale(1); opacity: 1; }
-  to { transform: scale(0.8); opacity: 0; }
+@keyframes overlayFadeOut {
+  from { opacity: 1; backdrop-filter: blur(4px); }
+  to { opacity: 0; backdrop-filter: blur(0px); }
 }
+
 
 /* ===============================
    FADE TRANSITIONS (FOR IMAGE SWITCHING)
