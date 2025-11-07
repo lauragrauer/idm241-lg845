@@ -10,8 +10,6 @@
   --transition-slow: 0.5s ease;
 }
 
-
-
 /* ===============================
    BODY / PAGE LAYOUT
 =================================*/
@@ -25,9 +23,7 @@ body {
   line-height: 1.4em;
 }
 
-/* ===============================
-   GALLERY CONTAINER
-=================================*/
+/* container that centers the gallery on top */
 .gallery-container {
   display: flex;
   justify-content: center;
@@ -52,20 +48,15 @@ body {
   margin: 0 auto;
 }
 
-/* Main image (locked aspect ratio) */
 .main-image {
   width: 600px;
-  aspect-ratio: 16 / 9; /* Keeps consistent shape */
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  flex-shrink: 0;
 }
 
 .main-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
   border-radius: 12px;
   transition: transform var(--transition-fast), filter var(--transition-fast);
 }
@@ -75,9 +66,7 @@ body {
   filter: brightness(1.05);
 }
 
-/* ===============================
-   THUMBNAILS
-=================================*/
+/* THUMBNAILS */
 .thumbs {
   display: flex;
   flex-direction: column;
@@ -116,37 +105,34 @@ body {
   z-index: 100;
   opacity: 0;
   transition: opacity var(--transition-mid);
-  pointer-events: none; /* prevents clicks everywhere by default */
 }
 
-/* Activate visible overlay */
 .overlay.active {
   display: flex;
   opacity: 1;
   animation: overlayFadeIn var(--transition-mid) forwards;
-  pointer-events: auto; /* re-enable only for child elements */
 }
 
-/* Prevent accidental close — only X is clickable */
-.overlay img,
-.paw,
-.close-btn {
-  pointer-events: auto; /* these still clickable */
+@keyframes overlayFadeIn {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(4px); }
 }
 
-/* Main image in overlay — same ratio & smooth scaling */
+@keyframes overlayFadeOut {
+  from { opacity: 1; backdrop-filter: blur(4px); }
+  to { opacity: 0; backdrop-filter: blur(0px); }
+}
+
+/* Main image in overlay */
 .overlay img {
-  width: 70%;
-  max-width: 950px;
-  aspect-ratio: 16 / 9; /* Keeps consistent shape */
-  height: auto;
+  width: 65%;
+  max-width: 850px;
   border-radius: 12px;
-  object-fit: cover;
   transform-origin: center;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Zoom in/out animations */
+/* Zoom and fade animations for open/close */
 .overlay img.zoom-in {
   animation: zoomIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
@@ -155,24 +141,15 @@ body {
   animation: zoomOut 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes overlayFadeIn {
-  from { opacity: 0; backdrop-filter: blur(0px); }
-  to { opacity: 1; backdrop-filter: blur(4px); }
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-/* ===============================
-   LIGHTBOX FADE OUT (on close)
-=================================*/
-.overlay.fade-out {
-  animation: overlayFadeOut 0.5s ease forwards;
-  pointer-events: none;
+@keyframes zoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.8); opacity: 0; }
 }
-
-@keyframes overlayFadeOut {
-  from { opacity: 1; backdrop-filter: blur(4px); }
-  to { opacity: 0; backdrop-filter: blur(0px); }
-}
-
 
 /* ===============================
    FADE TRANSITIONS (FOR IMAGE SWITCHING)
@@ -196,77 +173,79 @@ body {
 }
 
 /* ===============================
-   PAW ARROWS (LIGHTBOX CONTROLS)
+   PAW ARROWS (ALL STYLES TOGETHER)
 =================================*/
 .paw {
-  --paw-size: clamp(50px, 8vw, 74px);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--paw-size);
-  height: var(--paw-size);
   background: none;
   border: none;
   cursor: pointer;
-  opacity: 1;
-  z-index: 10;
+  width: 74px;
+  height: 74px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   transition: transform 0.5s ease, opacity 0.5s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  opacity: 1;
 }
 
+/* Base image */
 .paw img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.45s cubic-bezier(0.25, 1, 0.3, 1),
-              opacity 0.4s ease,
-              filter 0.45s ease;
+  transition: transform 0.5s ease, opacity 0.4s ease, filter 0.5s ease;
   pointer-events: none;
   will-change: transform, opacity, filter;
 }
 
-/* Hover — elegant tilt & glow */
+/* Hover — subtle tilt + glow */
 .paw:not(.clicked):hover img {
-  transform: scale(1.08) rotate(7deg);
-  opacity: 0.92;
-  filter: drop-shadow(0 0 6px rgba(101, 4, 181, 0.25));
+  transform: scale(1.04) rotate(8deg);
+  opacity: 0.9;
+  transition: transform 0.35s ease-in-out, opacity 0.35s ease, filter 0.35s ease;
 }
 
-/* Click — smooth pulse */
+/* Click — smooth fade in/out pulse */
 .paw.clicked img {
-  animation: pawClickPulse 0.8s ease-in-out forwards;
+  animation: pawClickBlend 0.9s ease-in-out forwards;
 }
 
-@keyframes pawClickPulse {
-  0%   { transform: scale(1.04) rotate(7deg); opacity: 0.9; }
-  30%  { transform: scale(1.1) translateY(3px) rotate(9deg); opacity: 0.85; }
-  60%  { transform: scale(1.03) translateY(-2px) rotate(6deg); opacity: 0.95; }
-  100% { transform: scale(1.04) rotate(7deg); opacity: 0.9; }
+@keyframes pawClickBlend {
+  0% {
+    transform: scale(1.04) rotate(8deg);
+    opacity: 0.9;
+  }
+  25% {
+    transform: scale(1.06) translateY(3px) rotate(9deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.03) translateY(-2px) rotate(7deg);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1.04) rotate(8deg);
+    opacity: 0.9;
+  }
 }
 
-/* Maintain hover consistency */
+/* Hover remains consistent during click */
 .paw.clicked:hover img {
-  filter: drop-shadow(0 0 8px rgba(101, 4, 181, 0.3));
+  transform: scale(1.04) rotate(8deg);
+  opacity: 0.9;
+  filter: drop-shadow(0 0 3px rgba(101, 4, 181, 0.2));
+  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease;
 }
 
-/* Left & Right Positioning */
-.paw.left  { left: clamp(2%, 4vw, 4%); }
-.paw.right { right: clamp(2%, 4vw, 4%); }
+/* Positioning */
+.paw.left { left: 4%; }
+.paw.right { right: 4%; }
 
-/* Hide when overlay inactive */
+/* Fade arrows when overlay closes */
 .overlay:not(.active) .paw {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.45s ease-in-out;
-}
-
-/* Responsive paw scaling */
-@media (max-width: 480px) {
-  .paw {
-    --paw-size: clamp(44px, 14vw, 60px);
-  }
+  transition: opacity 0.4s ease-in-out;
 }
 
 /* ===============================
@@ -311,6 +290,7 @@ body {
 .close-btn:hover {
   cursor: pointer;
   opacity: 0.85;
+  transition: opacity 0.4s ease;
 }
 
 .close-btn.clicked {

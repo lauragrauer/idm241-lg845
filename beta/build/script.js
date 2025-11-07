@@ -80,6 +80,7 @@ document.addEventListener("keydown", e => {
 function changeImage(step) {
   current += step;
 
+  // ✅ LOOPING BEHAVIOR
   if (current < 0) current = thumbs.length - 1;
   if (current >= thumbs.length) current = 0;
 
