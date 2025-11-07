@@ -23,89 +23,85 @@ thumbs.forEach((thumb, index) => {
     thumbs.forEach(t => t.classList.remove("active"));
     dots.forEach(d => d.classList.remove("active"));
     thumb.classList.add("active");
+    dots[index].classList.add("active");
 
+    // Smooth fade transition for main image
     mainImage.classList.add("fade-out");
     setTimeout(() => {
       mainImage.src = thumb.src;
       mainImage.classList.remove("fade-out");
       mainImage.classList.add("fade-in");
     }, 200);
-
     setTimeout(() => mainImage.classList.remove("fade-in"), 500);
 
-    dots[index].classList.add("active");
     current = index;
   });
 });
 
 /* -------------------------------
-   MAIN IMAGE HOVER & CLICK
+   MAIN IMAGE CLICK (OPEN OVERLAY)
 --------------------------------*/
-mainImage.addEventListener("mouseenter", () => {
-  mainImage.style.cursor = "pointer";
-});
-
 mainImage.addEventListener("click", () => {
   overlay.classList.add("active");
-  overlayImg.src = mainImage.src;
+  overlayImg.src = thumbs[current].src;
 });
 
 /* -------------------------------
-   CLOSE OVERLAY
+   CLOSE OVERLAY → reset to first image
 --------------------------------*/
 function closeOverlay() {
   closeBtn.classList.add("clicked");
-  overlayImg.classList.add("zoom-out");
+  overlay.classList.add("fade-out");
 
   setTimeout(() => {
-    overlay.classList.remove("active");
+    overlay.classList.remove("active", "fade-out");
     overlayImg.classList.remove("zoom-out");
     closeBtn.classList.remove("clicked");
+
+    // Reset to first image
+    current = 0;
+    mainImage.src = thumbs[0].src;
+
+    thumbs.forEach(t => t.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+    thumbs[0].classList.add("active");
+    dots[0].classList.add("active");
   }, 600);
 }
 
 closeBtn.addEventListener("click", closeOverlay);
-overlay.addEventListener("click", (e) => {
-  if (e.target === overlay) closeOverlay();
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && overlay.classList.contains("active")) closeOverlay();
 });
 
 /* -------------------------------
-   ARROW NAVIGATION
+   ARROW NAVIGATION INSIDE OVERLAY
 --------------------------------*/
-rightArrow.addEventListener("click", (e) => {
-  e.stopPropagation();
-  if (current < thumbs.length - 1) {
-    rightArrow.classList.add("clicked");
-    current++;
-    changeImage();
-    setTimeout(() => rightArrow.classList.remove("clicked"), 600);
-  }
-});
+function changeImage(step) {
+  current += step;
 
-leftArrow.addEventListener("click", (e) => {
-  e.stopPropagation();
-  if (current > 0) {
-    leftArrow.classList.add("clicked");
-    current--;
-    changeImage();
-    setTimeout(() => leftArrow.classList.remove("clicked"), 600);
-  }
-});
+  // ✅ LOOPING BEHAVIOR
+  if (current < 0) current = thumbs.length - 1;
+  if (current >= thumbs.length) current = 0;
 
-/* -------------------------------
-   UPDATE IMAGE FUNCTION
---------------------------------*/
-function changeImage() {
   overlayImg.classList.add("fade-out");
   setTimeout(() => {
     overlayImg.src = thumbs[current].src;
-    thumbs.forEach(t => t.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
-    thumbs[current].classList.add("active");
-    dots[current].classList.add("active");
     overlayImg.classList.remove("fade-out");
-    overlayImg.classList.add("fade-in");
   }, 200);
 
-  setTimeout(() => overlayImg.classList.remove("fade-in"), 500);
+  thumbs.forEach(t => t.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active"));
+  thumbs[current].classList.add("active");
+  dots[current].classList.add("active");
 }
+
+rightArrow.addEventListener("click", e => {
+  e.stopPropagation();
+  changeImage(1);
+});
+
+leftArrow.addEventListener("click", e => {
+  e.stopPropagation();
+  changeImage(-1);
+});
