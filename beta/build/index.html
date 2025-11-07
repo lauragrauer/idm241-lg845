@@ -63,116 +63,136 @@
       </a>
     </section>
 
-
     <h1 class="rules-title">TRIGGERS</h1>
+  <!-- ===================== TRIGGER LARGE IMAGE ===================== -->
     <section>
-      <span class="object-title">Object 1 - </span>
-      <span class="object-desc">Main image positioned slightly to the right of the page’s center.</span>
+      <span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
+      <span class="object-desc">Main image positioned slightly to the right of 
+        the page’s center.</span>
       <li>Hover On</li>
       <li>Hover Off</li>
       <li>Click</li>
       <hr class="divider">
 
-      <span class="object-title">Object 2 - </span>
-      <span class="object-desc">Arrows located on the left-center and right-center side of the display.</span>
+  <!-- ===================== TRIGGER ARROWS ===================== -->
+      <span class="object-title">Object 2 (ARROWS)</span>
+      <span class="object-desc">Arrows located on the left-center and right-center 
+        side of the display.</span>
       <li>Hover On</li>
       <li>Hover Off</li>
       <li>Click</li>
       <hr class="divider">
 
-      <span class="object-title">Object 3 - </span>
-      <span class="object-desc">The "X" close icon positioned in the top right corner of the display.</span>
+  <!-- ===================== TRIGGER X BUTTON ===================== -->
+      <span class="object-title">Object (X BUTTON)</span>
+      <span class="object-desc">The "X" close icon positioned in the top right 
+        corner of the display.</span>
       <li>Hover On</li>
       <li>Hover Off</li>
       <li>Click</li>
     </section>
 
 
+
+
     <h1 class="rules-title">RULES</h1>
     <section>
-      <span class="object-title">Object 1</span>
+  <!-- ===================== RULES LARGE IMAGE ===================== -->
+      <span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
       <span class="bold">Hover On</span>
-      <li>Cursor changes to a hand icon, signaling the image is clickable.</li><br>
-      <li>The image zooms in for 0.25 seconds.</li><br>
+      <li>Cursor changes to a hand icon, signaling the image is clickable.</li>
+      <li>The image zooms in for 0.25s and increases to a brightness of 1.1.</li><br>
 
       <span class="bold">Hover Off</span>
-      <li>Cursor returns to default arrow.</li><br>
-      <li>The image reverts back to its basic stage.</li><br>
+      <li>Cursor returns to default arrow.</li>
+      <li>The image reverts back to its original size and brightness in 0.25s.</li><br>
 
       <span class="bold">Click</span>
       <li>Main image enlarges and centers in 0.5s with a dark overlay fading in.</li>
       <li>Navigation arrows and close icon fade in within 0.15s.</li>
       <hr class="divider">
 
-      <span class="object-title">Object 2</span>
+  <!-- ===================== RULES ARROWS ===================== -->
+      <span class="object-title">Object 2 (ARROWS)</span>
       <span class="bold">Hover On</span>
-      <li>Cursor changes to hand cursor.</li><br>
+      <li>Cursor changes to hand cursor.</li>
+      <li>Arrows fades to a brightness of 2 in 0.3s.</li><br>
 
       <span class="bold">Hover Off</span>
-      <li>Cursor changes back to pointer.</li><br>
+      <li>Cursor changes back to pointer.</li>
+      <li>Arrows fades to a brightness of 1 in 0.3s.</li><br>
 
       <span class="bold">Click</span>
-      <li>Next image replaces and displays in 0.2s</li>
+      <li>Next image replaces and displays in 0.2s.</li>
+      <li>Once the final dot or image is active, the process resets to the
+        first image and dot.</li>
       <li>Indicator dots update to reflect active image.</li>
+      <li>Paw buttons scale in and scale out in 0.6s.</li>
       <hr class="divider">
 
-      <span class="object-title">Object 3</span>
+  <!-- ===================== RULES X BUTTON ===================== -->
+      <span class="object-title">Object 3 (X BUTTON)</span>
       <span class="bold">Hover On</span>
-      <li>Cursor changes to hand icon.</li><br>
+      <li>Cursor changes to hand icon.</li>
+      <li>X button eases to an opacity of 1 in 0.4s</li><br>
 
       <span class="bold">Hover Off</span>
-      <li>Cursor returns to default arrow.</li><br>
+      <li>Cursor returns to default arrow.</li>
+      <li>X button eases back to an opacity of 1 in 0.4s.</li><br>
 
       <span class="bold">Click</span>
-      <li>X icon rotates 15° and moves slightly along y-axis (0.15s), fading out the overlay and restoring original view.</li>
+      <li>X icon rotates 12° and moves slightly along y-axis (0.9s), fading 
+        out the overlay and restoring original view in 0.4s.</li>
     </section>
 
 
   <h1 class="rules-title">FEEDBACK</h1>
 
+  <!-- ===================== FEEDBACK X LARGE IMAGE ===================== -->
   <section>
-<span class="object-title">Object 1</span>
+<span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
 <span class="bold">Hover On</span>
     <li>The cursor visually changes to a hand icon, signaling that the main image.
        is clickable.</li>
-    <li>The image zooms in for 0.25 seconds. This creates an engaging transition to 
-      guide the user to the selected image.</li><br>
+    <li>The image zooms in for 0.25s and increases to a brightness of 1.1. This creates an engaging transition 
+      to guide the user to the selected image.</li><br>
 
 <span class="bold">Hover Off</span>
     <li>Cursor changes back to an arrow.</li>
-    <li>The image reverts back to its basic stage.</li><br>
+    <li>The image reverts back to its original size and brightness in 0.25s.</li><br>
 
 
 <span class="bold">Click</span>
-    <li>The main image smoothly enlarges into a centered view in 0.5 seconds.</li>
-    <li>A dark overlay fades in behind the image with 80% opacity (#000000) in 0.5
-       seconds.</li>
-    <li>Navigation arrows, dots, and the close (“X”) icon fade in around the image 
-      in 0.15 seconds.</li>
+    <li>The main image smoothly enlarges into a centered view in 0.5s.</li>
+    <li>A dark overlay fades in behind the image with 80% opacity (#000000) in 0.5s.</li>
+    <li>Navigation arrows, dots, and the close (“X”) icon fade in around the 
+      image in 0.15s.</li>
     <hr class="divider">
 
+  <!-- ===================== FEEDBACK ARROWS ===================== -->
+      <span class="object-title">Object 2 (ARROWS)</span>
+      <span class="bold">Hover On</span>
+      <li>Cursor changes to hand cursor, signaling the arrows are clickable.</li>
+      <li>Arrows fades to a brightness of 2 in 0.3s, signaling the ability
+      to click.</li><br>
 
-    <span class="object-title">Object 2</span>
-<span class="bold">Hover On</span>
-    <li>When hovered, the cursor changes to a hand icon over the navigation arrow
-       paws, indicating that they are clickable.</li>
+      <span class="bold">Hover Off</span>
+      <li>Cursor changes back to pointer.</li>
+      <li>Once the final dot or image is active, the process resets to the
+        first image and dot.</li>
+      <li>Arrows fades to a brightness of 1 in 0.3s.</li><br>
 
-<span class="bold">Hover Off</span>
-    <li>Cursor changes back to an arrow.</li>
-
-<span class="bold">Click</span>
-<li>Clicking the right arrow paw transitions to the next image in the sequence, 
-  as the current image disappear and is replaced by the next in 0.2s.</li>
-<li>Clicking the left arrow paw returns to the previous image, as the current 
-  image slides off to the right in 0.5 seconds.</li>
-    <li>The indicator dots beneath the image change from white to purple in 0.15 
-      seconds to indicate the active photo.</li>
-    <li>When clicking the navigation arrow paw, it moves up and down by 15 degrees
-       (y-axis) in 0.15 seconds.</li>
-    <hr class="divider">
+      <span class="bold">Click</span>
+      <li>Next image fades in and out to replace and display in 0.5s. This
+        creates a smooth visual handoff.
+      </li>
+      <li>Indicator dots update to reflect active image.</li>
+      <li>Paw buttons scale in and scale out in 0.6s.</li>
+      <hr class="divider">
 
 
-    <span class="object-title">Object 3</span>
+  <!-- ===================== FEEDBACK X BUTTON ===================== -->
+    <span class="object-title">Object 3 (X BUTTON)</span>
 <span class="bold">Hover On</span>
     <li>The cursor visually changes to a hand icon.</li><br>
 
@@ -180,19 +200,36 @@
     <li>Cursor changes back to an arrow.</li><br>
 
 <span class="bold">Click</span>
-    <li>The X icon moves vertically by 10 degrees along the y-axis and rotates 15 degrees
-       within 0.15 seconds.</li>
-    <li>The dim 80% opacity black background fades out in 0.5 seconds, returning to
-    its original color.</li>
-    <li>The image shrinks back to its original shape in 0.5 seconds.</li>
+    <li>The X icon moves vertically by 10 degrees along the y-axis and rotates 15 
+      degrees within 0.15s.</li>
+    <li>The dim 80% opacity black background fades out in 0.5s, returning 
+      to its original color.</li>
+    <li>The image fades out in 0.5s.</li>
    <li>The dark background overlay, navigation arrows, indicator dots, and the
-       X icon fade out within 0.25 seconds, returning the interface to its original state.</li>
+       X icon fade out within 0.4s, returning the interface to its 
+      original state.</li>
   </section>
 
+      <section><span class="object-title">Object 3 (X BUTTON)</span>
+      <span class="bold">Hover On</span>
+      <li>Cursor changes to hand icon, signaling the X button is clickable.</li><br>
+      <li>X button eases to an opacity of 1 in 0.4s, signaling the X button is clickable.</li><br>
 
+      <span class="bold">Hover Off</span>
+      <li>Cursor returns to default arrow.</li><br>
+      <li>X button eases back to an opacity of 1 in 0.4s.</li><br>
+
+      <span class="bold">Click</span>
+      <li>X icon rotates 12° and moves slightly along y-axis (0.9s), fading 
+        out the overlay and restoring original view. This add a sense of 
+        physical interaction and closure.</li>
+    </section>
+
+  <!-- ===================== LOOPS AND MODES ===================== -->
     <h1 class="rules-title">LOOPS & MODES (Meta-Rules)</h1>
     <section>
-      <li>The lightbox acts as a mode overlaying the gallery. It dims the background, disables other interactions, and introduces navigation controls until closed.</li>
+      <li>The lightbox acts as a mode overlaying the gallery. It dims the 
+      background, disables other interactions, and introduces navigation controls until closed.</li>
     </section>
 
 
