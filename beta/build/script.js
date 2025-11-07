@@ -20,10 +20,7 @@ let current = 0;
 --------------------------------*/
 thumbs.forEach((thumb, index) => {
   thumb.addEventListener("click", () => {
-    thumbs.forEach(t => t.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
-    thumb.classList.add("active");
-    dots[index].classList.add("active");
+    updateActiveState(index);
 
     // Smooth fade transition for main image
     mainImage.classList.add("fade-out");
@@ -39,69 +36,99 @@ thumbs.forEach((thumb, index) => {
 });
 
 /* -------------------------------
-   MAIN IMAGE CLICK (OPEN OVERLAY)
+   MAIN IMAGE HOVER & CLICK
 --------------------------------*/
+mainImage.addEventListener("mouseenter", () => {
+  mainImage.style.cursor = "pointer";
+});
+
 mainImage.addEventListener("click", () => {
   overlay.classList.add("active");
   overlayImg.src = thumbs[current].src;
+  overlayImg.classList.remove("fade-out");
+  overlayImg.classList.add("fade-in");  // ✅ smooth fade when opening
+  syncDotsToCurrent();
 });
 
 /* -------------------------------
-   CLOSE OVERLAY → reset to first image
+   CLOSE OVERLAY
 --------------------------------*/
 function closeOverlay() {
   closeBtn.classList.add("clicked");
-  overlay.classList.add("fade-out");
+  overlayImg.classList.add("zoom-out");
+  overlay.classList.add("fade-out"); // ✅ smooth overlay fade-out
 
   setTimeout(() => {
     overlay.classList.remove("active", "fade-out");
     overlayImg.classList.remove("zoom-out");
     closeBtn.classList.remove("clicked");
 
-    // Reset to first image
-    current = 0;
-    mainImage.src = thumbs[0].src;
-
-    thumbs.forEach(t => t.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
-    thumbs[0].classList.add("active");
-    dots[0].classList.add("active");
+    // ✅ sync main image & dots back
+    mainImage.src = thumbs[current].src;
+    updateActiveState(current);
   }, 600);
 }
 
 closeBtn.addEventListener("click", closeOverlay);
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape" && overlay.classList.contains("active")) closeOverlay();
+
+// ✅ Optional: close with ESC key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && overlay.classList.contains("active")) {
+    closeOverlay();
+  }
 });
 
 /* -------------------------------
-   ARROW NAVIGATION INSIDE OVERLAY
+   ARROW NAVIGATION
 --------------------------------*/
-function changeImage(step) {
-  current += step;
+rightArrow.addEventListener("click", (e) => {
+  e.stopPropagation();
+  rightArrow.classList.add("clicked");
 
-  // ✅ LOOPING BEHAVIOR
-  if (current < 0) current = thumbs.length - 1;
-  if (current >= thumbs.length) current = 0;
+  // ✅ LOOP FORWARD
+  current = (current + 1) % thumbs.length;
 
+  changeImage();
+  setTimeout(() => rightArrow.classList.remove("clicked"), 600);
+});
+
+leftArrow.addEventListener("click", (e) => {
+  e.stopPropagation();
+  leftArrow.classList.add("clicked");
+
+  // ✅ LOOP BACKWARD
+  current = (current - 1 + thumbs.length) % thumbs.length;
+
+  changeImage();
+  setTimeout(() => leftArrow.classList.remove("clicked"), 600);
+});
+
+/* -------------------------------
+   UPDATE IMAGE FUNCTION
+--------------------------------*/
+function changeImage() {
   overlayImg.classList.add("fade-out");
   setTimeout(() => {
     overlayImg.src = thumbs[current].src;
+    updateActiveState(current);
     overlayImg.classList.remove("fade-out");
+    overlayImg.classList.add("fade-in");
   }, 200);
 
-  thumbs.forEach(t => t.classList.remove("active"));
-  dots.forEach(d => d.classList.remove("active"));
-  thumbs[current].classList.add("active");
-  dots[current].classList.add("active");
+  setTimeout(() => overlayImg.classList.remove("fade-in"), 500);
 }
 
-rightArrow.addEventListener("click", e => {
-  e.stopPropagation();
-  changeImage(1);
-});
+/* -------------------------------
+   HELPERS
+--------------------------------*/
+function updateActiveState(index) {
+  thumbs.forEach(t => t.classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active"));
+  thumbs[index].classList.add("active");
+  dots[index].classList.add("active");
+}
 
-leftArrow.addEventListener("click", e => {
-  e.stopPropagation();
-  changeImage(-1);
-});
+function syncDotsToCurrent() {
+  dots.forEach(d => d.classList.remove("active"));
+  dots[current].classList.add("active");
+}
