@@ -194,7 +194,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   opacity: 1;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: opacity var(--transition-mid), transform var(--transition-mid);
   z-index: 10;
 }
 
@@ -203,7 +203,7 @@ body {
   height: 100%;
   object-fit: contain;
   pointer-events: none;
-  transition: filter 0.3s ease-in-out; 
+  transition: filter 0.35s ease-in-out; 
 }
 
 /* Lighten smoothly on hover and back */
@@ -270,7 +270,7 @@ body {
   height: 12px;
   border-radius: 50%;
   background: white;
-  transition: background var(--transition-fast);
+  transition: background var(--transition-mid);
 }
 
 .dot.active {

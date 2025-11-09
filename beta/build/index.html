@@ -74,7 +74,7 @@
       <hr class="divider">
 
   <!-- ===================== TRIGGER ARROWS ===================== -->
-      <span class="object-title">Object 2 (ARROWS)</span>
+      <span class="object-title">Object 2 (PAW ARROWS)</span>
       <span class="object-desc">Arrows located on the left-center and right-center 
         side of the display.</span>
       <li>Hover On</li>
@@ -83,7 +83,7 @@
       <hr class="divider">
 
   <!-- ===================== TRIGGER X BUTTON ===================== -->
-      <span class="object-title">Object (X BUTTON)</span>
+      <span class="object-title">Object (CLOSE BUTTON)</span>
       <span class="object-desc">The "X" close icon positioned in the top right 
         corner of the display.</span>
       <li>Hover On</li>
@@ -99,55 +99,54 @@
   <!-- ===================== RULES LARGE IMAGE ===================== -->
       <span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
       <span class="bold">Hover On</span>
-      <li>Cursor changes to a hand icon, signaling the image is clickable.</li>
-      <li>The image zooms in for 0.25s and increases to a brightness of 1.1.</li><br>
+<li>The main image increases in brightness by 10% over the span of 0.35 seconds.</li>
+<li>The main image scales up by 7% over the span of 0.35 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
 
       <span class="bold">Hover Off</span>
-      <li>Cursor returns to default arrow.</li>
-      <li>The image reverts back to its original size and brightness in 0.25s.</li><br>
+<li>The main image’s brightness and scaling refers back to its original, inactive state in 0.35 seconds</li>
+<li>The pointer changes to a cursor.</li><br>
 
       <span class="bold">Click</span>
-      <li>Main image enlarges and centers in 0.5s with a dark overlay fading in.</li>
-      <li>Navigation arrows and close icon fade in within 0.15s.</li>
+<li>When the main image is clicked, the same image source fades in as the light box image over 0.35 seconds.</li>
+<li>The paw arrows, close button, and navigation dots fade in within 0.35 seconds.</li>
       <hr class="divider">
 
   <!-- ===================== RULES ARROWS ===================== -->
-      <span class="object-title">Object 2 (ARROWS)</span>
-      <span class="bold">Hover On</span>
-      <li>Cursor changes to hand cursor.</li>
-      <li>Arrows fades to a brightness of 2 in 0.3s.</li><br>
+<span class="object-title">Object 2 (ARROWS)</span>
 
-      <span class="bold">Hover Off</span>
-      <li>Cursor changes back to pointer.</li>
-      <li>Arrows fades to a brightness of 1 in 0.3s.</li><br>
-
-      <span class="bold">Click</span>
-      <li>Next image replaces and displays in 0.2s.</li>
-      <li>Once the final dot or image is active, the process resets to the
-        first image and dot.</li>
-      <li>Indicator dots update to reflect active image.</li>
-      <li>Paw buttons scale in and scale out in 0.6s.</li>
-      <hr class="divider">
-
-  <!-- ===================== RULES X BUTTON ===================== -->
-    <span class="object-title">Object 3 (X BUTTON)</span>
 <span class="bold">Hover On</span>
-    <li>The cursor visually changes to a hand icon.</li><br>
+<li>The selected paw arrow increases to a brightness of 200% in 0.35 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
 
 <span class="bold">Hover Off</span>
-    <li>Cursor changes back to an arrow.</li><br>
+<li>The paw arrow reverts back to its original brightness in 0.35 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
 
 <span class="bold">Click</span>
-    <li>The X icon moves vertically by 10 degrees along the y-axis and rotates 15 
-      degrees within 0.15s.</li>
-    <li>The dim 80% opacity black background fades out in 0.5s, returning 
-      to its original color and screen.</li>
-    <li>The image fades out and shrinks in 0.5s. Whatever image was selected prior to
-  the X button click will replace the main image located in the middle of the page.
-    </li>
-   <li>The dark background overlay, navigation arrows, indicator dots, and the
-       X icon fade out within 0.4s, returning the interface to its 
-      original state.</li>
+<li>The next lightbox image replaces the previous one in 0.25 seconds. The previous image slightly shrinks and fades during the transition.</li>
+<li>The paw arrow shrinks to 80% of its size and returns to 100% in 0.6 seconds, creating a subtle bounce effect.</li>
+<li>The navigation dots fade into a purple hue within 0.5 seconds, updating to indicate the currently active image.</li>
+<hr class="divider">
+
+
+  <!-- ===================== RULES CLOSE BUTTON ===================== -->
+<span class="object-title">Object 3 (CLOSE BUTTON)</span>
+
+<span class="bold">Hover On</span>
+<li>The close button decreases in opacity by 35% in 0.4 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
+
+<span class="bold">Hover Off</span>
+<li>The close button reverts back to its original opacity in 0.4 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+<span class="bold">Click</span>
+<li>The close button moves vertically by 10px and rotates 15° within 0.35 seconds.</li>
+<li>During this transition, the lightbox image zooms out in 0.5 seconds.</li>
+<li>After this motion nears completion, the paw arrows, navigation dots, and dark background fade out in 0.5 seconds.</li>
+<li>Everything then reverts to the original gallery view, with the last selected lightbox image displayed as the main image.</li>
+<hr class="divider">
   </section>
 
 
@@ -156,66 +155,56 @@
   <!-- ===================== FEEDBACK X LARGE IMAGE ===================== -->
   <section>
 <span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
+
 <span class="bold">Hover On</span>
-    <li>The cursor visually changes to a hand icon, signaling that the main image.
-       is clickable.</li>
-    <li>The image zooms in for 0.25s and increases to a brightness of 1.1. This creates an engaging transition 
-      to guide the user to the selected image.</li><br>
+<li>The main image increases in brightness by 10% over 0.35 seconds, creating a subtle highlight that signals interactivity.</li>
+<li>The image scales up by 7% within 0.35 seconds, providing motion feedback that makes it feel more responsive.</li>
+<li>The cursor changes to a pointer, indicating the image is clickable.</li><br>
 
 <span class="bold">Hover Off</span>
-    <li>Cursor changes back to an arrow.</li>
-    <li>The image reverts back to its original size and brightness in 0.25s.</li><br>
-
+<li>The main image returns to its original brightness and size within 0.35 seconds, signaling the end of interactivity.</li>
+<li>The pointer changes back to a cursor.</li><br>
 
 <span class="bold">Click</span>
-    <li>The main image smoothly enlarges into a centered view in 0.5s.</li>
-    <li>A dark overlay fades in behind the image with 80% opacity (#000000) in 0.5s.</li>
-    <li>Navigation arrows, dots, and the close (“X”) icon fade in around the 
-      image in 0.15s.</li>
-    <hr class="divider">
+<li>When the main image is clicked, the same image source fades in as the lightbox image over 0.35 seconds.</li>
+<li>The paw arrows, navigation dots, and close button fade in around the lightbox within 0.35 seconds.</li>
+<hr class="divider">
 
   <!-- ===================== FEEDBACK ARROWS ===================== -->
-      <span class="object-title">Object 2 (ARROWS)</span>
-      <span class="bold">Hover On</span>
-      <li>Cursor changes to hand cursor, signaling the arrows are clickable.</li>
-      <li>Arrows fades to a brightness of 2 in 0.3s, signaling the ability
-      to click.</li><br>
+<span class="object-title">Object 2 (PAW ARROWS)</span>
 
-      <span class="bold">Hover Off</span>
-      <li>Cursor changes back to pointer.</li>
-      <li>Once the final dot or image is active, the process resets to the
-        first image and dot.</li>
-      <li>Arrows fades to a brightness of 1 in 0.3s.</li><br>
+<span class="bold">Hover On</span>
+<li>The selected paw arrow increases to a brightness of 200% within 0.35 seconds, reinforcing its role in gallery navigation.</li>
+<li>The cursor changes to a pointer, indicating the arrow is clickable.</li><br>
 
-      <span class="bold">Click</span>
-      <li>Next image fades in and out to replace and display in 0.5s. This
-        creates a smooth visual handoff.
-      </li>
-      <li>Indicator dots update to reflect active image.</li>
-      <li>Paw buttons scale in and scale out in 0.6s.</li>
-      <hr class="divider">
+<span class="bold">Hover Off</span>
+<li>The paw arrow returns to its original brightness and state within 0.35 seconds, signaling the end of interaction.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+<span class="bold">Click</span>
+<li>The next lightbox image replaces the previous one in 0.25 seconds. The previous image slightly shrinks and fades, creating a smooth visual transition between slides.</li>
+<li>The paw arrow shrinks to 80% and returns to 100% in 0.6 seconds, producing a quick bounce effect.</li>
+<li>The navigation dots fade into a purple hue within 0.5 seconds, updating to indicate the currently active image.</li>
+<hr class="divider">
 
 
   <!-- ===================== FEEDBACK X BUTTON ===================== -->
-    <span class="object-title">Object 3 (X BUTTON)</span>
+<span class="object-title">Object 3 (X BUTTON)</span>
+
 <span class="bold">Hover On</span>
-    <li>The cursor visually changes to a hand icon.</li><br>
+<li>The close (X) button decreases in opacity by 35% within 0.4 seconds, visually emphasizing its interactive state.</li>
+<li>The cursor changes to a pointer, signaling the button is clickable.</li><br>
 
 <span class="bold">Hover Off</span>
-    <li>Cursor changes back to an arrow.</li><br>
+<li>The close button returns to its original opacity within 0.4 seconds, indicating the interaction has ended.</li>
+<li>The pointer changes back to a cursor.</li><br>
 
 <span class="bold">Click</span>
-    <li>The X icon moves vertically by 10 degrees along the y-axis and rotates 15 
-      degrees within 0.15s.</li>
-    <li>The dim 80% opacity black background fades out in 0.5s, returning 
-      to its original color.</li>
-    <li>The image fades out and shrinks in 0.5s. Whatever image was selected prior to
-  the X button click will replace the main image located in the middle of the page.
-    </li>
-   <li>The dark background overlay, navigation arrows, indicator dots, and the
-       X icon fade out within 0.4s, returning the interface to its 
-      original state. This add a sense of 
-        physical interaction and closure.</li>
+<li>The close button moves vertically by 10px and rotates 15° within 0.35 seconds, creating a sense of physical feedback.</li>
+<li>During this transition, the lightbox image zooms out in 0.5 seconds, reinforcing the closing motion.</li>
+<li>As the animation nears completion, the paw arrows, navigation dots, and dark background fade out together within 0.5 seconds.</li>
+<li>The interface smoothly returns to its original gallery view, with the last selected lightbox image displayed as the main image.</li>
+<hr class="divider">
   </section>
 
   <!-- ===================== LOOPS AND MODES ===================== -->
