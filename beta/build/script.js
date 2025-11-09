@@ -56,17 +56,22 @@ mainImage.addEventListener("click", () => {
 function closeOverlay() {
   closeBtn.classList.add("clicked");
   overlayImg.classList.add("zoom-out");
-  overlay.classList.add("fade-out"); // ✅ smooth overlay fade-out
 
+  // Wait for X animation (~0.9s) before starting fade-out
+  setTimeout(() => {
+    overlay.classList.add("fade-out");
+  }, 500);
+
+  // After fade-out completes (~1.25s total)
   setTimeout(() => {
     overlay.classList.remove("active", "fade-out");
     overlayImg.classList.remove("zoom-out");
     closeBtn.classList.remove("clicked");
 
-    // ✅ sync main image & dots back
+    // ✅ Reset clickability for main image
     mainImage.src = thumbs[current].src;
     updateActiveState(current);
-  }, 600);
+  }, 1000);
 }
 
 closeBtn.addEventListener("click", closeOverlay);

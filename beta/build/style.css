@@ -125,6 +125,11 @@ body {
   to { opacity: 0; backdrop-filter: blur(0px); }
 }
 
+.overlay.fade-out {
+  opacity: 0;
+  animation: overlayFadeOut var(--transition-mid);
+}
+
 /* Main image in overlay */
 .overlay img {
   width: 65%;
