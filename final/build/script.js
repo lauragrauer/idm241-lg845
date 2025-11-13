@@ -20,15 +20,19 @@ let current = 0;
 --------------------------------*/
 thumbs.forEach((thumb, index) => {
   thumb.addEventListener("click", () => {
+
+    // Update active classes
     updateActiveState(index);
 
     // Smooth fade transition for main image
     mainImage.classList.add("fade-out");
+
     setTimeout(() => {
-      mainImage.src = thumb.src;
+      mainImage.src = thumb.src;     // ⭐ MAIN FIX — thumbnail updates main image
       mainImage.classList.remove("fade-out");
       mainImage.classList.add("fade-in");
     }, 200);
+
     setTimeout(() => mainImage.classList.remove("fade-in"), 500);
 
     current = index;
@@ -44,7 +48,7 @@ mainImage.addEventListener("mouseenter", () => {
 
 // CLICK = OPEN LIGHTBOX + BOUNCE
 mainImage.addEventListener("click", () => {
-  mainImage.classList.add("clicked");   // BOUNCE
+  mainImage.classList.add("clicked");   // BOUNCE ANIMATION
   setTimeout(() => mainImage.classList.remove("clicked"), 550);
 
   overlay.classList.add("active");
@@ -73,7 +77,7 @@ function closeOverlay() {
     /* ⭐ Smooth main image fade when returning */
     mainImage.classList.add("fade-out");
     setTimeout(() => {
-      mainImage.src = thumbs[current].src;
+      mainImage.src = thumbs[current].src;   // Keep the main image synced
       mainImage.classList.remove("fade-out");
       mainImage.classList.add("fade-in");
       setTimeout(() => mainImage.classList.remove("fade-in"), 400);
@@ -135,6 +139,7 @@ function changeImage() {
 function updateActiveState(index) {
   thumbs.forEach(t => t.classList.remove("active"));
   dots.forEach(d => d.classList.remove("active"));
+
   thumbs[index].classList.add("active");
   dots[index].classList.add("active");
 }
@@ -143,5 +148,3 @@ function syncDotsToCurrent() {
   dots.forEach(d => d.classList.remove("active"));
   dots[current].classList.add("active");
 }
-
-
