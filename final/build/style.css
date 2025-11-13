@@ -71,13 +71,24 @@ body {
 
 @keyframes mainImageBounceUpDownSmooth {
   0%   { transform: translateY(0) scale(1); }
-  22%  { transform: translateY(-10px) scale(1.015); } /* gentle lift */
-  55%  { transform: translateY(8px) scale(0.985); }   /* soft drop */
-  100% { transform: translateY(0) scale(1); }         /* settle */
+  22%  { transform: translateY(-10px) scale(1.015); }
+  55%  { transform: translateY(8px) scale(0.985); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .main-image img.clicked {
   animation: mainImageBounceUpDownSmooth 0.65s cubic-bezier(0.3, 0.75, 0.35, 1);
+}
+
+/* ⭐ Smooth main image fade transition */
+.main-image img.fade-out {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.main-image img.fade-in {
+  opacity: 1;
+  transition: opacity 0.35s ease;
 }
 
 /* THUMBNAILS */
@@ -222,16 +233,16 @@ body {
   filter: brightness(2);
 }
 
-/* 🎉 PAW CLICK BOUNCE (NO ROTATION HERE — rotation handled separately per side) */
+/* 🎉 PAW CLICK BOUNCE */
 .paw.clicked img {
   animation: pawBounceBase 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
 }
 
 @keyframes pawBounceBase {
   0%   { transform: scale(1); }
-  35%  { transform: scale(0.80); }   /* shrink */
-  70%  { transform: scale(1.05); }   /* overshoot */
-  100% { transform: scale(1); }       /* settle */
+  35%  { transform: scale(0.80); }
+  70%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 /* 🎯 LEFT PAW ROTATION */
@@ -241,20 +252,20 @@ body {
 
 @keyframes pawBounceLeft {
   0%   { transform: scale(1) rotate(0deg); }
-  35%  { transform: scale(0.80) rotate(-10deg); } /* tilt left */
-  70%  { transform: scale(1.05) rotate(8deg); }   /* tilt right */
+  35%  { transform: scale(0.80) rotate(-10deg); }
+  70%  { transform: scale(1.05) rotate(8deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
 
-/* 🎯 RIGHT PAW ROTATION (mirrored) */
+/* 🎯 RIGHT PAW ROTATION */
 .paw.right.clicked img {
   animation: pawBounceRight 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
 }
 
 @keyframes pawBounceRight {
   0%   { transform: scale(1) rotate(0deg); }
-  35%  { transform: scale(0.80) rotate(10deg); }  /* tilt right */
-  70%  { transform: scale(1.05) rotate(-8deg); }  /* tilt left */
+  35%  { transform: scale(0.80) rotate(10deg); }
+  70%  { transform: scale(1.05) rotate(-8deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
 
@@ -432,3 +443,4 @@ a {
   color: #a380b8;
   margin-left: -20px;
 }
+

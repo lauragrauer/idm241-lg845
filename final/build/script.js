@@ -61,7 +61,7 @@ function closeOverlay() {
   closeBtn.classList.add("clicked");
   overlayImg.classList.add("zoom-out");
 
-  // Wait for X animation (~0.9s)
+  // Wait for X bounce animation (~0.9s)
   setTimeout(() => overlay.classList.add("fade-out"), 500);
 
   // Fully close after fade-out
@@ -70,7 +70,15 @@ function closeOverlay() {
     overlayImg.classList.remove("zoom-out");
     closeBtn.classList.remove("clicked");
 
-    mainImage.src = thumbs[current].src;
+    /* ⭐ Smooth main image fade when returning */
+    mainImage.classList.add("fade-out");
+    setTimeout(() => {
+      mainImage.src = thumbs[current].src;
+      mainImage.classList.remove("fade-out");
+      mainImage.classList.add("fade-in");
+      setTimeout(() => mainImage.classList.remove("fade-in"), 400);
+    }, 200);
+
     updateActiveState(current);
   }, 1000);
 }
@@ -85,7 +93,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 /* -------------------------------
-   ARROW NAVIGATION (LOOPING + BOUNCE)
+   ARROW NAVIGATION
 --------------------------------*/
 rightArrow.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -117,9 +125,8 @@ function changeImage() {
     updateActiveState(current);
     overlayImg.classList.remove("fade-out");
     overlayImg.classList.add("fade-in");
+    setTimeout(() => overlayImg.classList.remove("fade-in"), 500);
   }, 200);
-
-  setTimeout(() => overlayImg.classList.remove("fade-in"), 500);
 }
 
 /* -------------------------------
@@ -136,3 +143,5 @@ function syncDotsToCurrent() {
   dots.forEach(d => d.classList.remove("active"));
   dots[current].classList.add("active");
 }
+
+
