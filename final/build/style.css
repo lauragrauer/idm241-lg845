@@ -461,13 +461,14 @@ a {
 
 .main-image img {
   width: 100%;
+  border-radius: 12px;
   aspect-ratio: 16/9;
   object-fit: cover;
-  border-radius: 12px;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: transform 0.35s ease-in-out,
+              filter 0.35s ease-in-out;
 }
 
-/* hover polish */
+/* Hover — only the effect, NOT the transition */
 .main-image:hover img {
   transform: scale(1.07);
   filter: brightness(1.1);
