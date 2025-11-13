@@ -63,9 +63,32 @@ body {
   transition: transform var(--transition-mid), filter var(--transition-mid);
 }
 
+/* Hover effect */
 .main-image:hover img {
   transform: scale(1.07);
   filter: brightness(1.1);
+}
+
+@keyframes mainImageBounceUpDownSmooth {
+  0%   { transform: translateY(0) scale(1); }
+  22%  { transform: translateY(-10px) scale(1.015); }
+  55%  { transform: translateY(8px) scale(0.985); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.main-image img.clicked {
+  animation: mainImageBounceUpDownSmooth 0.65s cubic-bezier(0.3, 0.75, 0.35, 1);
+}
+
+/* ⭐ Smooth main image fade transition */
+.main-image img.fade-out {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.main-image img.fade-in {
+  opacity: 1;
+  transition: opacity 0.35s ease;
 }
 
 /* THUMBNAILS */
@@ -141,25 +164,6 @@ body {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* Zoom and fade animations for open/close */
-.overlay img.zoom-in {
-  animation: zoomIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.overlay img.zoom-out {
-  animation: zoomOut 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes zoomOut {
-  from { transform: scale(1); opacity: 1; }
-  to { transform: scale(0.8); opacity: 0; }
-}
-
 /* ===============================
    FADE TRANSITIONS (FOR IMAGE SWITCHING)
 =================================*/
@@ -203,27 +207,49 @@ body {
   height: 100%;
   object-fit: contain;
   pointer-events: none;
-  transition: filter 0.35s ease-in-out; 
+  transition: filter 0.35s ease-in-out;
 }
 
-/* Lighten smoothly on hover and back */
 .paw:hover img {
   filter: brightness(2);
 }
 
-/* Subtle click pulse — no rotation or color */
+/* 🎉 PAW CLICK BOUNCE */
 .paw.clicked img {
-  animation: pawClickSimple 0.6s ease-in-out forwards;
+  animation: pawBounceBase 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
 }
 
-@keyframes pawClickSimple {
+@keyframes pawBounceBase {
   0%   { transform: scale(1); }
-  40%  { transform: scale(0.80); }
+  35%  { transform: scale(0.80); }
   70%  { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
 
-/* Keep paws properly aligned inside the lightbox */
+/* 🎯 LEFT PAW ROTATION */
+.paw.left.clicked img {
+  animation: pawBounceLeft 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
+}
+
+@keyframes pawBounceLeft {
+  0%   { transform: scale(1) rotate(0deg); }
+  35%  { transform: scale(0.80) rotate(-10deg); }
+  70%  { transform: scale(1.05) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* 🎯 RIGHT PAW ROTATION */
+.paw.right.clicked img {
+  animation: pawBounceRight 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
+}
+
+@keyframes pawBounceRight {
+  0%   { transform: scale(1) rotate(0deg); }
+  35%  { transform: scale(0.80) rotate(10deg); }
+  70%  { transform: scale(1.05) rotate(-8deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
 .paw.left {
   left: clamp(2%, 5vw, 6%);
 }
@@ -232,14 +258,12 @@ body {
   right: clamp(2%, 5vw, 6%);
 }
 
-/* Hide when overlay closes */
 .overlay:not(.active) .paw {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
 
-/* Responsive adjustment — ensures no overlap on mobile */
 @media (max-width: 600px) {
   .paw {
     width: clamp(44px, 12vw, 60px);
@@ -254,7 +278,6 @@ body {
     right: clamp(3%, 6vw, 8%);
   }
 }
-
 
 /* ===============================
    DOTS
@@ -401,3 +424,4 @@ a {
   color: #a380b8;
   margin-left: -20px;
 }
+

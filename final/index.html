@@ -13,23 +13,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
-  <!-- ===================== GALLERY SECTION ===================== -->
-  <div class="gallery">
-    <div class="main-image" id="mainImage">
-      <img src="/alpha/build/dog-1.webp" alt="Dog1" />
-    </div>
-
-
-
-<div class="thumbs" id="thumbs" style="display: none;">
-  <img class="active" src="/alpha/build/dog-1.webp" alt="dog1" />
-  <img src="/alpha/build/dog-2.webp" alt="dog2" />
-  <img src="/alpha/build/dog-3.webp" alt="dog3" />
-  <img src="/alpha/build/dog-4.webp" alt="dog4" />
-</div>
-  </div>
-
   <!-- ===================== LIGHTBOX OVERLAY ===================== -->
   <div class="overlay" id="overlay">
     <button class="close-btn" id="closeBtn">✕</button>
@@ -109,6 +92,7 @@
 
       <span class="bold">Click</span>
 <li>When the main image is clicked, the same image source fades in as the light box image over 0.35 seconds.</li>
+<li>The main image will also bounce in 0.65 seconds.</li>
 <li>The paw arrows, close button, and navigation dots fade in within 0.35 seconds.</li><br>
       <hr class="divider">
 
@@ -125,6 +109,7 @@
 
 <span class="bold">Click</span>
 <li>The next lightbox image replaces the previous one in 0.25 seconds. The previous image slightly shrinks and fades during the transition.</li>
+<li>The selected paw arrow will rotate 10 degrees in one direction and then swing back in 0.65 seconds.</li>
 <li>The paw arrow shrinks to 80% of its size and returns to 100% in 0.6 seconds.</li>
 <li>The navigation dots fade into a purple hue within 0.5 seconds, updating to indicate the currently active image.</li>
 <hr class="divider">
@@ -146,6 +131,7 @@
 <li>During this transition, the lightbox image zooms out in 0.5 seconds.</li>
 <li>After this motion nears completion, the paw arrows, navigation dots, and dark background fade out in 0.5 seconds.</li>
 <li>Everything then reverts to the original gallery view, with the last selected lightbox image displayed as the main image.</li>
+<li>The main image will fade smoothly in 0.35 seconds.</li>
 <hr class="divider">
   </section>
 
@@ -167,6 +153,7 @@
 
 <span class="bold">Click</span>
 <li>When the main image is clicked, the same image source fades in as the lightbox image over 0.35 seconds, shifting heavy focus with the specific image.</li>
+<li>The main image will also bounce in 0.65 seconds, creating a playful, lively effect.</li>
 <li>The paw arrows, navigation dots, and close button fade in around the lightbox within 0.35 seconds.</li>
 <hr class="divider">
 
@@ -183,6 +170,7 @@
 
 <span class="bold">Click</span>
 <li>The next lightbox image replaces the previous one in 0.25 seconds. The previous image slightly shrinks and fades, creating a smooth visual transition between slides.</li>
+<li>The selected paw arrow will rotate 10 degrees in one direction and then swing back in 0.65 seconds, creating a fun, animated effect.</li>
 <li>The paw arrow shrinks to 80% and returns to 100% in 0.6 seconds, producing a quick bounce effect.</li>
 <li>The navigation dots fade into a purple hue within 0.5 seconds, updating to indicate the currently active image.</li>
 <hr class="divider">
@@ -204,6 +192,7 @@
 <li>During this transition, the lightbox image zooms out in 0.5 seconds, reinforcing the closing motion.</li>
 <li>As the animation nears completion, the paw arrows, navigation dots, and dark background fade out together within 0.5 seconds.</li>
 <li>The interface smoothly returns to its original gallery view, with the last selected lightbox image displayed as the main image.</li>
+<li>The main image will fade smoothly in 0.35 seconds.</li>
 <hr class="divider">
   </section>
 
@@ -214,7 +203,34 @@
       background, disables other interactions, and introduces navigation controls until closed.</li>
     </section>
 
+<h1 class="rules-title">UPDATED OBJECTS</h1>
 
+<section>
+<span class="object-title" style="display:block; text-align:center;">Object 1</span>
+<img src="object1.gif" alt="Object 1"
+     style="display:block; margin:auto; border:2px solid #d1c4e9; 
+     border-radius:10px; padding:4px; max-width:100%; height:auto;">
+</div><hr class="divider">
+
+
+<span class="object-title" style="display:block; text-align:center;">Object 2</span>
+ <img src="object2.gif" alt="Object 2"
+     style="display:block; margin:auto; border:2px solid #d1c4e9; 
+     border-radius:10px; padding:4px; max-width:100%; height:auto;">
+</div><hr class="divider">
+
+
+<span class="object-title" style="display:block; text-align:center;">Object 3</span>
+<img src="object3.gif" alt="Object 3"
+     style="display:block; margin:auto; border:2px solid #d1c4e9; 
+     border-radius:10px; padding:4px; max-width:100%; height:auto;">
+</div><hr class="divider">
+
+</section>
+      </div>
+    </div>
+</body>
+</html>
   <!-- ===================== SCRIPTS ===================== -->
   <script src="script.js"></script>
 </body>

@@ -42,11 +42,15 @@ mainImage.addEventListener("mouseenter", () => {
   mainImage.style.cursor = "pointer";
 });
 
+// CLICK = OPEN LIGHTBOX + BOUNCE
 mainImage.addEventListener("click", () => {
+  mainImage.classList.add("clicked");   // BOUNCE
+  setTimeout(() => mainImage.classList.remove("clicked"), 550);
+
   overlay.classList.add("active");
   overlayImg.src = thumbs[current].src;
   overlayImg.classList.remove("fade-out");
-  overlayImg.classList.add("fade-in");  // ✅ smooth fade when opening
+  overlayImg.classList.add("fade-in");
   syncDotsToCurrent();
 });
 
@@ -57,26 +61,31 @@ function closeOverlay() {
   closeBtn.classList.add("clicked");
   overlayImg.classList.add("zoom-out");
 
-  // Wait for X animation (~0.9s) before starting fade-out
-  setTimeout(() => {
-    overlay.classList.add("fade-out");
-  }, 500);
+  // Wait for X bounce animation (~0.9s)
+  setTimeout(() => overlay.classList.add("fade-out"), 500);
 
-  // After fade-out completes (~1.25s total)
+  // Fully close after fade-out
   setTimeout(() => {
     overlay.classList.remove("active", "fade-out");
     overlayImg.classList.remove("zoom-out");
     closeBtn.classList.remove("clicked");
 
-    // ✅ Reset clickability for main image
-    mainImage.src = thumbs[current].src;
+    /* ⭐ Smooth main image fade when returning */
+    mainImage.classList.add("fade-out");
+    setTimeout(() => {
+      mainImage.src = thumbs[current].src;
+      mainImage.classList.remove("fade-out");
+      mainImage.classList.add("fade-in");
+      setTimeout(() => mainImage.classList.remove("fade-in"), 400);
+    }, 200);
+
     updateActiveState(current);
   }, 1000);
 }
 
 closeBtn.addEventListener("click", closeOverlay);
 
-// ✅ Optional: close with ESC key
+// ESC close
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && overlay.classList.contains("active")) {
     closeOverlay();
@@ -88,24 +97,22 @@ document.addEventListener("keydown", (e) => {
 --------------------------------*/
 rightArrow.addEventListener("click", (e) => {
   e.stopPropagation();
-  rightArrow.classList.add("clicked");
 
-  // ✅ LOOP FORWARD
-  current = (current + 1) % thumbs.length;
-
-  changeImage();
+  rightArrow.classList.add("clicked");   // BOUNCE
   setTimeout(() => rightArrow.classList.remove("clicked"), 600);
+
+  current = (current + 1) % thumbs.length;
+  changeImage();
 });
 
 leftArrow.addEventListener("click", (e) => {
   e.stopPropagation();
-  leftArrow.classList.add("clicked");
 
-  // ✅ LOOP BACKWARD
-  current = (current - 1 + thumbs.length) % thumbs.length;
-
-  changeImage();
+  leftArrow.classList.add("clicked");    // BOUNCE
   setTimeout(() => leftArrow.classList.remove("clicked"), 600);
+
+  current = (current - 1 + thumbs.length) % thumbs.length;
+  changeImage();
 });
 
 /* -------------------------------
@@ -118,9 +125,8 @@ function changeImage() {
     updateActiveState(current);
     overlayImg.classList.remove("fade-out");
     overlayImg.classList.add("fade-in");
+    setTimeout(() => overlayImg.classList.remove("fade-in"), 500);
   }, 200);
-
-  setTimeout(() => overlayImg.classList.remove("fade-in"), 500);
 }
 
 /* -------------------------------
@@ -137,3 +143,5 @@ function syncDotsToCurrent() {
   dots.forEach(d => d.classList.remove("active"));
   dots[current].classList.add("active");
 }
+
+
