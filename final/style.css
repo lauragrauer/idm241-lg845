@@ -1,0 +1,403 @@
+/* ===============================
+   GLOBAL VARIABLES
+=================================*/
+:root {
+  --purple: #6504b5;
+  --bg: #f8f8f8;
+  --overlay: rgba(0, 0, 0, 0.85);
+  --transition-fast: 0.15s ease;
+  --transition-mid: 0.35s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ===============================
+   BODY / PAGE LAYOUT
+=================================*/
+body {
+  font-family: "Nunito", "Montserrat", sans-serif;
+  background: #EEEDF1;
+  color: #333;
+  margin: 0;
+  letter-spacing: 0.03rem;
+  font-weight: 100;
+  line-height: 1.4em;
+}
+
+/* container that centers the gallery on top */
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6vh 0;
+  background: var(--bg);
+}
+
+/* ===============================
+   GALLERY
+=================================*/
+.gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  gap: 24px;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.main-image {
+  width: 600px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.main-image img {
+  width: 100%;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform var(--transition-mid), filter var(--transition-mid);
+}
+
+.main-image:hover img {
+  transform: scale(1.07);
+  filter: brightness(1.1);
+}
+
+/* THUMBNAILS */
+.thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.thumbs img {
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: transform var(--transition-mid), border var(--transition-mid);
+}
+
+.thumbs img:hover {
+  transform: scale(1.05);
+}
+
+.thumbs img.active {
+  border-color: var(--purple);
+}
+
+/* ===============================
+   LIGHTBOX OVERLAY
+=================================*/
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--overlay);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity var(--transition-mid);
+}
+
+.overlay.active {
+  display: flex;
+  opacity: 1;
+  animation: overlayFadeIn var(--transition-mid) forwards;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; backdrop-filter: blur(0px); }
+  to { opacity: 1; backdrop-filter: blur(4px); }
+}
+
+@keyframes overlayFadeOut {
+  from { opacity: 1; backdrop-filter: blur(4px); }
+  to { opacity: 0; backdrop-filter: blur(0px); }
+}
+
+.overlay.fade-out {
+  opacity: 0;
+  animation: overlayFadeOut var(--transition-mid);
+}
+
+/* Main image in overlay */
+.overlay img {
+  width: 65%;
+  max-width: 850px;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transform-origin: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Zoom and fade animations for open/close */
+.overlay img.zoom-in {
+  animation: zoomIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.overlay img.zoom-out {
+  animation: zoomOut 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes zoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.8); opacity: 0; }
+}
+
+/* ===============================
+   FADE TRANSITIONS (FOR IMAGE SWITCHING)
+=================================*/
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.98); }
+}
+
+/* ===============================
+   PAW ARROWS (CLEAN + RESPONSIVE)
+=================================*/
+.paw {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: clamp(50px, 7vw, 74px);
+  height: clamp(50px, 7vw, 74px);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: opacity var(--transition-mid), transform var(--transition-mid);
+  z-index: 10;
+}
+
+.paw img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  transition: filter 0.35s ease-in-out; 
+}
+
+/* Lighten smoothly on hover and back */
+.paw:hover img {
+  filter: brightness(2);
+}
+
+/* Subtle click pulse — no rotation or color */
+.paw.clicked img {
+  animation: pawClickSimple 0.6s ease-in-out forwards;
+}
+
+@keyframes pawClickSimple {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.80); }
+  70%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Keep paws properly aligned inside the lightbox */
+.paw.left {
+  left: clamp(2%, 5vw, 6%);
+}
+
+.paw.right {
+  right: clamp(2%, 5vw, 6%);
+}
+
+/* Hide when overlay closes */
+.overlay:not(.active) .paw {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Responsive adjustment — ensures no overlap on mobile */
+@media (max-width: 600px) {
+  .paw {
+    width: clamp(44px, 12vw, 60px);
+    height: clamp(44px, 12vw, 60px);
+  }
+
+  .paw.left {
+    left: clamp(3%, 6vw, 8%);
+  }
+
+  .paw.right {
+    right: clamp(3%, 6vw, 8%);
+  }
+}
+
+
+/* ===============================
+   DOTS
+=================================*/
+.dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: white;
+  transition: background var(--transition-mid);
+}
+
+.dot.active {
+  background: var(--purple);
+}
+
+/* ===============================
+   CLOSE BUTTON
+=================================*/
+.close-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 32px;
+  font-weight: 600;
+  cursor: pointer;
+  z-index: 101;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.close-btn:hover {
+  cursor: pointer;
+  opacity: 0.65;
+  transition: opacity 0.4s ease;
+}
+
+.close-btn.clicked {
+  animation: xClickBounce 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.overlay:not(.active) .close-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes xClickBounce {
+  0%   { transform: scale(1) translateY(0) rotate(0deg); }
+  40%  { transform: scale(0.85) translateY(15px) rotate(12deg); }
+  70%  { transform: scale(1.1) translateY(-6px) rotate(-8deg); }
+  100% { transform: scale(1) translateY(0) rotate(0deg); }
+}
+
+/* ===============================
+   TEXT / DOCUMENTATION BELOW
+=================================*/
+main {
+  padding: 5vh 12vw;
+}
+
+section {
+  background-color: #FFFFFF;
+  padding: 2em 5em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  section {
+    padding: 2em 3em;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    padding: 1.2em 2em;
+  }
+}
+
+h1.rules-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #4a148c;
+  border-bottom: 3px solid #d1c4e9;
+  padding-bottom: 8px;
+  text-transform: uppercase;
+  line-height: 1.3em;
+}
+
+a {
+  color: #6a1b9a;
+  text-decoration: none;
+  font-weight: 500;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: inline-block;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.object-title {
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  font-size: 1.25rem;
+  margin-left: -20px;
+  font-weight: 800;
+  color: #6a1b9a;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
+}
+
+.divider {
+  border: none;
+  border-top: 3px dashed #d1c4e9;
+  width: 80%;
+  margin: 40px auto;
+}
+
+.object-desc {
+  color: #a380b8;
+  font-weight: 1000;
+  margin-left: -20px;
+}
+
+.bold {
+  font-weight: 1000;
+  font-size: 1.1rem;
+  color: #a380b8;
+  margin-left: -20px;
+}
