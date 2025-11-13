@@ -11,7 +11,7 @@
 }
 
 /* ===============================
-   BODY / PAGE LAYOUT
+   BODY
 =================================*/
 body {
   font-family: "Nunito", "Montserrat", sans-serif;
@@ -23,7 +23,9 @@ body {
   line-height: 1.4em;
 }
 
-/* container that centers the gallery on top */
+/* ===============================
+   GALLERY CONTAINER
+=================================*/
 .gallery-container {
   display: flex;
   justify-content: center;
@@ -33,23 +35,28 @@ body {
 }
 
 /* ===============================
-   GALLERY
+   GALLERY LAYOUT
 =================================*/
 .gallery {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  padding: 24px;
+  flex-wrap: nowrap;
   gap: 24px;
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
   max-width: 950px;
-  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  justify-content: center;
 }
 
+/* ===============================
+   MAIN IMAGE
+=================================*/
 .main-image {
   width: 600px;
+  max-width: 60vw;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -58,17 +65,23 @@ body {
 .main-image img {
   width: 100%;
   border-radius: 12px;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   object-fit: cover;
-  transition: transform var(--transition-mid), filter var(--transition-mid);
+  transition: transform 0.35s ease-in-out,
+              filter 0.35s ease-in-out,
+              opacity 0.35s ease;
 }
 
-/* Hover effect */
-.main-image:hover img {
-  transform: scale(1.07);
-  filter: brightness(1.1);
+/* Fade */
+.fade-out {
+  opacity: 0;
 }
 
+.fade-in {
+  opacity: 1;
+}
+
+/* Click bounce */
 @keyframes mainImageBounceUpDownSmooth {
   0%   { transform: translateY(0) scale(1); }
   22%  { transform: translateY(-10px) scale(1.015); }
@@ -80,32 +93,24 @@ body {
   animation: mainImageBounceUpDownSmooth 0.65s cubic-bezier(0.3, 0.75, 0.35, 1);
 }
 
-/* ⭐ Smooth main image fade transition */
-.main-image img.fade-out {
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.main-image img.fade-in {
-  opacity: 1;
-  transition: opacity 0.35s ease;
-}
-
-/* THUMBNAILS */
+/* ===============================
+   THUMBNAILS
+=================================*/
 .thumbs {
+  width: 100px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .thumbs img {
-  width: 90px;
+  width: 100%;
   height: 90px;
-  border-radius: 8px;
+  border-radius: 10px;
   object-fit: cover;
   cursor: pointer;
   border: 3px solid transparent;
-  transition: transform var(--transition-mid), border var(--transition-mid);
+  transition: transform 0.25s ease, border 0.25s ease;
 }
 
 .thumbs img:hover {
@@ -116,8 +121,71 @@ body {
   border-color: var(--purple);
 }
 
+/* Mobile: thumbnails horizontal */
+@media (max-width: 700px) {
+  .gallery {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .main-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .thumbs {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .thumbs img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
 /* ===============================
-   LIGHTBOX OVERLAY
+   THUMBNAIL SCROLL ARROWS
+=================================*/
+.thumb-switch {
+  background: white;
+  border: 3px solid var(--purple);
+  color: var(--purple);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.thumb-switch:hover {
+  background: var(--purple);
+  color: white;
+  transform: scale(1.12);
+}
+
+.thumb-left::before { content: "↑"; }
+.thumb-right::before { content: "↓"; }
+
+@media (max-width: 700px) {
+  .thumb-switch {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .thumb-left::before { content: "←"; }
+  .thumb-right::before { content: "→"; }
+}
+
+/* ===============================
+   OVERLAY / LIGHTBOX
 =================================*/
 .overlay {
   position: fixed;
@@ -153,40 +221,18 @@ body {
   animation: overlayFadeOut var(--transition-mid);
 }
 
-/* Main image in overlay */
 .overlay img {
   width: 65%;
   max-width: 850px;
   border-radius: 12px;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16/9;
   object-fit: cover;
   transform-origin: center;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 /* ===============================
-   FADE TRANSITIONS (FOR IMAGE SWITCHING)
-=================================*/
-.fade-in {
-  animation: fadeIn 0.5s ease forwards;
-}
-
-.fade-out {
-  animation: fadeOut 0.3s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(1.02); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeOut {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.98); }
-}
-
-/* ===============================
-   PAW ARROWS (CLEAN + RESPONSIVE)
+   PAW ARROWS
 =================================*/
 .paw {
   background: none;
@@ -202,6 +248,9 @@ body {
   z-index: 10;
 }
 
+.paw.left { left: clamp(2%, 5vw, 6%); }
+.paw.right { right: clamp(2%, 5vw, 6%); }
+
 .paw img {
   width: 100%;
   height: 100%;
@@ -214,7 +263,7 @@ body {
   filter: brightness(2);
 }
 
-/* 🎉 PAW CLICK BOUNCE */
+/* Paw bounce */
 .paw.clicked img {
   animation: pawBounceBase 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
 }
@@ -226,7 +275,7 @@ body {
   100% { transform: scale(1); }
 }
 
-/* 🎯 LEFT PAW ROTATION */
+/* Left rotation */
 .paw.left.clicked img {
   animation: pawBounceLeft 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
 }
@@ -238,7 +287,7 @@ body {
   100% { transform: scale(1) rotate(0deg); }
 }
 
-/* 🎯 RIGHT PAW ROTATION */
+/* Right rotation */
 .paw.right.clicked img {
   animation: pawBounceRight 0.65s cubic-bezier(0.25, 0.75, 0.35, 1) forwards;
 }
@@ -250,33 +299,20 @@ body {
   100% { transform: scale(1) rotate(0deg); }
 }
 
-.paw.left {
-  left: clamp(2%, 5vw, 6%);
-}
-
-.paw.right {
-  right: clamp(2%, 5vw, 6%);
-}
-
 .overlay:not(.active) .paw {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.4s ease;
 }
 
+/* Mobile paw arrows */
 @media (max-width: 600px) {
   .paw {
     width: clamp(44px, 12vw, 60px);
     height: clamp(44px, 12vw, 60px);
   }
 
-  .paw.left {
-    left: clamp(3%, 6vw, 8%);
-  }
-
-  .paw.right {
-    right: clamp(3%, 6vw, 8%);
-  }
+  .paw.left { left: clamp(3%, 6vw, 8%); }
+  .paw.right { right: clamp(3%, 6vw, 8%); }
 }
 
 /* ===============================
@@ -319,9 +355,7 @@ body {
 }
 
 .close-btn:hover {
-  cursor: pointer;
   opacity: 0.65;
-  transition: opacity 0.4s ease;
 }
 
 .close-btn.clicked {
@@ -341,7 +375,7 @@ body {
 }
 
 /* ===============================
-   TEXT / DOCUMENTATION BELOW
+   DOCUMENTATION STYLES
 =================================*/
 main {
   padding: 5vh 12vw;
@@ -389,14 +423,12 @@ a {
   overflow-wrap: break-word;
   display: inline-block;
   max-width: 100%;
-  white-space: normal;
 }
 
 .object-title {
   font-family: 'Poppins', sans-serif;
   display: block;
   font-size: 1.25rem;
-  margin-left: -20px;
   font-weight: 800;
   color: #6a1b9a;
   margin-top: 18px;
@@ -415,120 +447,10 @@ a {
 .object-desc {
   color: #a380b8;
   font-weight: 1000;
-  margin-left: -20px;
 }
 
 .bold {
   font-weight: 1000;
   font-size: 1.1rem;
   color: #a380b8;
-  margin-left: -20px;
-}
-
-/* ===============================
-   GALLERY LAYOUT
-=================================*/
-.gallery-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6vh 0;
-  background: var(--bg);
-}
-
-.gallery {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  gap: 24px;
-  background: white;
-  padding: 24px;
-  border-radius: 16px;
-  max-width: 950px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-/* MAIN IMAGE */
-.main-image {
-  width: 600px;
-  max-width: 60vw;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.main-image img {
-  width: 100%;
-  border-radius: 12px;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  transition: transform 0.35s ease-in-out,
-              filter 0.35s ease-in-out;
-}
-
-/* Hover — only the effect, NOT the transition */
-.main-image:hover img {
-  transform: scale(1.07);
-  filter: brightness(1.1);
-}
-
-/* Fade animation */
-.fade-out { opacity: 0; }
-.fade-in { opacity: 1; }
-
-/* ===============================
-   THUMBNAILS
-=================================*/
-.thumbs {
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.thumbs img {
-  width: 100%;
-  height: 90px;
-  border-radius: 10px;
-  object-fit: cover;
-  cursor: pointer;
-  border: 3px solid transparent;
-  transition: transform 0.25s ease, border 0.25s ease;
-}
-
-.thumbs img:hover {
-  transform: scale(1.05);
-}
-
-.thumbs img.active {
-  border-color: var(--purple);
-}
-
-/* ===============================
-   RESPONSIVE — THUMBS GO HORIZONTAL ON MOBILE
-=================================*/
-@media (max-width: 700px) {
-  .gallery {
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .main-image {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .thumbs {
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .thumbs img {
-    width: 70px;
-    height: 70px;
-  }
 }

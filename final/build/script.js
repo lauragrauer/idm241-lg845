@@ -1,9 +1,8 @@
 /* ===============================
    LIGHTBOX GALLERY SCRIPT
-   Handles thumbnails, overlay, and navigation
 =================================*/
 
-// Select elements
+// Element refs
 const thumbs = document.querySelectorAll(".thumbs img");
 const mainImage = document.querySelector("#mainImage img");
 const overlay = document.querySelector("#overlay");
@@ -13,96 +12,91 @@ const leftArrow = document.querySelector("#leftArrow");
 const rightArrow = document.querySelector("#rightArrow");
 const dots = document.querySelectorAll(".dot");
 
+const thumbLeft = document.getElementById("thumbLeft");
+const thumbRight = document.getElementById("thumbRight");
+
 let current = 0;
 
-/* -------------------------------
-   THUMBNAIL INTERACTION
---------------------------------*/
+/* ===============================
+   MAIN IMAGE — POINTER ON HOVER
+=================================*/
+mainImage.style.cursor = "pointer";
+
+/* ===============================
+   THUMBNAIL CLICK
+=================================*/
 thumbs.forEach((thumb, index) => {
   thumb.addEventListener("click", () => {
-
-    // Update active classes
     updateActiveState(index);
+    current = index;
 
-    // Smooth fade transition for main image
     mainImage.classList.add("fade-out");
-
     setTimeout(() => {
-      mainImage.src = thumb.src;     // ⭐ MAIN FIX — thumbnail updates main image
+      mainImage.src = thumb.src;
       mainImage.classList.remove("fade-out");
       mainImage.classList.add("fade-in");
     }, 200);
 
     setTimeout(() => mainImage.classList.remove("fade-in"), 500);
-
-    current = index;
   });
 });
 
-/* -------------------------------
-   MAIN IMAGE HOVER & CLICK
---------------------------------*/
-mainImage.addEventListener("mouseenter", () => {
-  mainImage.style.cursor = "pointer";
-});
-
-// CLICK = OPEN LIGHTBOX + BOUNCE
+/* ===============================
+   MAIN IMAGE CLICK (Open Lightbox)
+=================================*/
 mainImage.addEventListener("click", () => {
-  mainImage.classList.add("clicked");   // BOUNCE ANIMATION
+
+  // bounce animation on click
+  mainImage.classList.add("clicked");
   setTimeout(() => mainImage.classList.remove("clicked"), 550);
 
   overlay.classList.add("active");
   overlayImg.src = thumbs[current].src;
-  overlayImg.classList.remove("fade-out");
+
   overlayImg.classList.add("fade-in");
+  setTimeout(() => overlayImg.classList.remove("fade-in"), 400);
+
   syncDotsToCurrent();
 });
 
-/* -------------------------------
-   CLOSE OVERLAY
---------------------------------*/
+/* ===============================
+   CLOSE LIGHTBOX
+=================================*/
 function closeOverlay() {
   closeBtn.classList.add("clicked");
-  overlayImg.classList.add("zoom-out");
 
-  // Wait for X bounce animation (~0.9s)
   setTimeout(() => overlay.classList.add("fade-out"), 500);
 
-  // Fully close after fade-out
   setTimeout(() => {
     overlay.classList.remove("active", "fade-out");
-    overlayImg.classList.remove("zoom-out");
     closeBtn.classList.remove("clicked");
 
-    /* ⭐ Smooth main image fade when returning */
     mainImage.classList.add("fade-out");
     setTimeout(() => {
-      mainImage.src = thumbs[current].src;   // Keep the main image synced
+      mainImage.src = thumbs[current].src;
       mainImage.classList.remove("fade-out");
       mainImage.classList.add("fade-in");
       setTimeout(() => mainImage.classList.remove("fade-in"), 400);
     }, 200);
 
-    updateActiveState(current);
   }, 1000);
 }
 
 closeBtn.addEventListener("click", closeOverlay);
 
-// ESC close
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && overlay.classList.contains("active")) {
     closeOverlay();
   }
 });
 
-/* -------------------------------
-   ARROW NAVIGATION
---------------------------------*/
+/* ===============================
+   PAW ARROW NAVIGATION
+=================================*/
 rightArrow.addEventListener("click", (e) => {
   e.stopPropagation();
 
-  rightArrow.classList.add("clicked");   // BOUNCE
+  rightArrow.classList.add("clicked");
   setTimeout(() => rightArrow.classList.remove("clicked"), 600);
 
   current = (current + 1) % thumbs.length;
@@ -112,30 +106,34 @@ rightArrow.addEventListener("click", (e) => {
 leftArrow.addEventListener("click", (e) => {
   e.stopPropagation();
 
-  leftArrow.classList.add("clicked");    // BOUNCE
+  leftArrow.classList.add("clicked");
   setTimeout(() => leftArrow.classList.remove("clicked"), 600);
 
   current = (current - 1 + thumbs.length) % thumbs.length;
   changeImage();
 });
 
-/* -------------------------------
-   UPDATE IMAGE FUNCTION
---------------------------------*/
+/* ===============================
+   UPDATE LIGHTBOX IMAGE
+=================================*/
 function changeImage() {
   overlayImg.classList.add("fade-out");
+
   setTimeout(() => {
     overlayImg.src = thumbs[current].src;
+
     updateActiveState(current);
+
     overlayImg.classList.remove("fade-out");
     overlayImg.classList.add("fade-in");
-    setTimeout(() => overlayImg.classList.remove("fade-in"), 500);
+
+    setTimeout(() => overlayImg.classList.remove("fade-in"), 400);
   }, 200);
 }
 
-/* -------------------------------
-   HELPERS
---------------------------------*/
+/* ===============================
+   UPDATE ACTIVE THUMB + DOT
+=================================*/
 function updateActiveState(index) {
   thumbs.forEach(t => t.classList.remove("active"));
   dots.forEach(d => d.classList.remove("active"));
@@ -147,4 +145,35 @@ function updateActiveState(index) {
 function syncDotsToCurrent() {
   dots.forEach(d => d.classList.remove("active"));
   dots[current].classList.add("active");
+}
+
+/* ===============================
+   THUMBNAIL SCROLL ARROWS
+=================================*/
+thumbRight.addEventListener("click", () => {
+  current = (current + 1) % thumbs.length;
+  updateThumbnailFromArrows();
+});
+
+thumbLeft.addEventListener("click", () => {
+  current = (current - 1 + thumbs.length) % thumbs.length;
+  updateThumbnailFromArrows();
+});
+
+function updateThumbnailFromArrows() {
+  mainImage.classList.add("fade-out");
+
+  setTimeout(() => {
+    mainImage.src = thumbs[current].src;
+    mainImage.classList.remove("fade-out");
+    mainImage.classList.add("fade-in");
+  }, 200);
+
+  setTimeout(() => mainImage.classList.remove("fade-in"), 500);
+
+  updateActiveState(current);
+
+  if (overlay.classList.contains("active")) {
+    changeImage();
+  }
 }
