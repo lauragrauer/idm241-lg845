@@ -18,7 +18,7 @@ const thumbRight = document.getElementById("thumbRight");
 let current = 0;
 
 /* ===============================
-   MAIN IMAGE — POINTER ON HOVER
+   MAIN IMAGE — POINTER CURSOR
 =================================*/
 mainImage.style.cursor = "pointer";
 
@@ -36,7 +36,6 @@ thumbs.forEach((thumb, index) => {
       mainImage.classList.remove("fade-out");
       mainImage.classList.add("fade-in");
     }, 200);
-
     setTimeout(() => mainImage.classList.remove("fade-in"), 500);
   });
 });
@@ -46,7 +45,7 @@ thumbs.forEach((thumb, index) => {
 =================================*/
 mainImage.addEventListener("click", () => {
 
-  // bounce animation on click
+  // Click bounce only (no hover animations)
   mainImage.classList.add("clicked");
   setTimeout(() => mainImage.classList.remove("clicked"), 550);
 
@@ -84,6 +83,7 @@ function closeOverlay() {
 
 closeBtn.addEventListener("click", closeOverlay);
 
+// ESC key closes overlay
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && overlay.classList.contains("active")) {
     closeOverlay();
@@ -95,7 +95,6 @@ document.addEventListener("keydown", (e) => {
 =================================*/
 rightArrow.addEventListener("click", (e) => {
   e.stopPropagation();
-
   rightArrow.classList.add("clicked");
   setTimeout(() => rightArrow.classList.remove("clicked"), 600);
 
@@ -105,7 +104,6 @@ rightArrow.addEventListener("click", (e) => {
 
 leftArrow.addEventListener("click", (e) => {
   e.stopPropagation();
-
   leftArrow.classList.add("clicked");
   setTimeout(() => leftArrow.classList.remove("clicked"), 600);
 
@@ -177,3 +175,11 @@ function updateThumbnailFromArrows() {
     changeImage();
   }
 }
+
+mainImage.classList.add("fade-out");
+setTimeout(() => {
+  mainImage.src = thumbs[current].src;
+  mainImage.classList.remove("fade-out");
+  mainImage.classList.add("fade-in");
+  setTimeout(() => mainImage.classList.remove("fade-in"), 400);
+}, 200);
