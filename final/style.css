@@ -424,3 +424,23 @@ a {
   color: #a380b8;
   margin-left: -20px;
 }
+
+/* Petfinder image */
+.petfinder-img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Object images (Object 1–5 GIFs) */
+.object-gif {
+  display: block;
+  margin: auto;
+  border: 2px solid #d1c4e9;
+  border-radius: 10px;
+  padding: 4px;
+  max-width: 100%;
+  height: auto;
+}
