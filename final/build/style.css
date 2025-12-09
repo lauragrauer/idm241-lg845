@@ -67,8 +67,23 @@ body {
   aspect-ratio: 16/10;
   object-fit: cover;
   object-position: top;
-  transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
+  /* 👇 make opacity animatable & a bit slower */
+  opacity: 1;
+  transition: opacity 0.35s ease-in-out,
+              transform 0.35s ease,
+              filter 0.35s ease;
   cursor: pointer;
+}
+
+/* fade helpers (only affect images, not the whole overlay box) */
+.main-image img.fade-out,
+.overlay img.fade-out {
+  opacity: 0;
+}
+
+.main-image img.fade-in,
+.overlay img.fade-in {
+  opacity: 1;
 }
 
 /* ✔ Bounce on click */
@@ -106,8 +121,18 @@ body {
   transform: scale(1.05);
 }
 
+@keyframes thumbFadeInPurple {
+  0% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: var(--purple);
+  }
+}
+
 .thumbs img.active {
   border-color: var(--purple);
+  animation: thumbFadeInPurple 0.65s ease-in-out;
 }
 
 /* Mobile thumbnails horizontal */
@@ -173,8 +198,6 @@ body {
   .thumb-right::before { content: "→"; }
 }
 
-
-
 /* ===============================
    LIGHTBOX OVERLAY
 =================================*/
@@ -219,7 +242,9 @@ body {
   aspect-ratio: 16/10;
   object-fit: cover;
   object-position: top;
-  transition: opacity 0.35s ease;
+  opacity: 1;
+  /* same fade as main-image img */
+  transition: opacity 0.35s ease-in-out;
 }
 
 /* ===============================
