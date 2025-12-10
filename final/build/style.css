@@ -99,7 +99,7 @@ body {
 
 .main-image img:hover {
   filter: brightness(1.15);
-  transform: scale(1.01);
+  transform: scale(1.07);
 }
 
 /* ===============================
