@@ -15,7 +15,7 @@
 =================================*/
 body {
   font-family: "Nunito", "Montserrat", sans-serif;
-  background: #EEEDF1;
+  background: #eeedf1;
   color: #333;
   margin: 0;
   letter-spacing: 0.03rem;
@@ -31,8 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 6vh 0;
-  background: var(--bg);
-}
+  background: #eeedf1;}
 
 /* ===============================
    GALLERY LAYOUT
@@ -465,3 +464,4 @@ a {
 .bold {
   font-size: 1.1rem;
 }
+
