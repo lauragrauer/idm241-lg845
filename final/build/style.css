@@ -97,6 +97,11 @@ body {
   animation: mainImageBounceUpDownSmooth 0.65s cubic-bezier(0.3, 0.75, 0.35, 1);
 }
 
+.main-image img:hover {
+  filter: brightness(1.15);
+  transform: scale(1.01);
+}
+
 /* ===============================
    THUMBNAILS
 =================================*/
