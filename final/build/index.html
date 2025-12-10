@@ -12,7 +12,7 @@
 
 
  <!-- Styles -->
- <link rel="stylesheet" href="style-copy.css" />
+ <link rel="stylesheet" href="style.css" />
 </head>
 
 
@@ -80,6 +80,305 @@
 
 
  </div>
+
+
+
+
+ <!-- ===================== MICROINTERACTION WRITE-UP ===================== -->
+ <main class="microinteraction">
+   <h1 class="rules-title">URL TO USER INTERFACE</h1>
+   <section>
+     <a href="https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/"
+        target="_blank" rel="noopener">
+       https://www.petfinder.com/dogs-and-puppies/breeds/canadian-eskimo/
+     </a>
+   </section>
+
+
+   <h1 class="rules-title">TRIGGERS</h1>
+ <!-- ===================== TRIGGER LARGE IMAGE ===================== -->
+   <section>
+     <span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
+     <span class="object-desc">Main image positioned to the page's center.</span>
+     <li>Hover On</li>
+     <li>Hover Off</li>
+     <li>Click</li>
+     <hr class="divider">
+
+
+ <!-- ===================== TRIGGER LIGHTBOX ARROWS ===================== -->
+     <span class="object-title">Object 2 (LIGHTBOX ARROWS)</span>
+     <span class="object-desc">Arrows located on the left-center and right-center
+       side of the display.</span>
+     <li>Hover On</li>
+     <li>Hover Off</li>
+     <li>Click</li>
+     <hr class="divider">
+
+
+ <!-- ===================== TRIGGER X BUTTON ===================== -->
+     <span class="object-title">Object 3 (CLOSE BUTTON)</span>
+     <span class="object-desc">The "X" close icon positioned in the top right
+       corner of the display.</span>
+     <li>Hover On</li>
+     <li>Hover Off</li>
+     <li>Click</li>
+
+
+ <!-- ===================== TRIGGER SLIDER ARROWS ===================== -->
+     <span class="object-title">Object 4 (SLIDER ARROWS)</span>
+     <span class="object-desc">The navigation arrows are centered above and below the thumbnail images on desktop, and on the left and right of the thumbnail images on mobile. Overall, they are positioned to the right of the center of the display.</span>
+     <li>Hover On</li>
+     <li>Hover Off</li>
+     <li>Click</li>
+     <hr class="divider">
+
+
+
+
+ <!-- ===================== TRIGGER SLIDER IMAGES ===================== -->
+     <span class="object-title">Object 5 (SLIDER IMAGES)</span>
+     <span class="object-desc">The thumbnail images are positioned to the right of the center of the display beside the main image on desktop, and appear below the main image on mobile.</span>
+     <li>Hover On</li>
+     <li>Hover Off</li>
+     <li>Click</li>
+     <hr class="divider">
+ </section>
+
+
+
+
+   <h1 class="rules-title">RULES</h1>
+   <section>
+ <!-- ===================== RULES LARGE IMAGE ===================== -->
+     <span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
+<span class="bold">Hover On</span>
+<li>The main image increases in brightness by 15% over 0.35 seconds.</li>
+<li>The image scales up by 7% within 0.35 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The main image returns to its original brightness and size within 0.35 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+     <span class="bold">Click</span>
+<li>When the main image is clicked, the same image source fades in as the light box image over 0.35 seconds.</li>
+<li>The main image scales up to 101.5% while rising 10px and returns to its original state in 0.65 seconds.</li>
+<li>The paw arrows, close button, and navigation dots fade in within 0.35 seconds.</li><br>
+     <hr class="divider">
+
+
+ <!-- ===================== LIGHTBOX RULES ARROWS ===================== -->
+<span class="object-title">Object 2 (LIGHTBOX ARROWS)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The selected paw arrow increases to a brightness of 200% in 0.35 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The paw arrow reverts back to its original brightness in 0.35 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>The next lightbox image replaces the previous one in 0.25 seconds. The previous image fades out during the transition in the 0.25 seconds and the new one fades in at 0.25 seconds.</li>
+<li>The selected paw arrow will rotate 10 degrees in one direction and then swing back in 0.65 seconds.</li>
+<li>The paw arrow shrinks to 80% of its size and returns to 100% in 0.6 seconds.</li>
+<li>The navigation dots fade into a purple hue within 0.5 seconds, updating to indicate the currently active image.</li>
+<hr class="divider">
+
+
+
+
+ <!-- ===================== RULES CLOSE BUTTON ===================== -->
+<span class="object-title">Object 3 (CLOSE BUTTON)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The close button decreases in opacity by 35% in 0.4 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The close button reverts back to its original opacity in 0.4 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>The close button moves vertically by 10px and rotates 15° within 0.35 seconds.</li>
+<li>During this transition, the lightbox background, x button, dots, and select image fade out in 0.5 seconds.</li>
+<li>Everything then reverts to the original gallery view, with the last selected lightbox image displayed as the main image.</li>
+<li>The main new selected image will fade in to replace a previous one in 0.35 seconds.</li>
+<hr class="divider">
+ <!-- ===================== RULES SLIDER ARROWS ===================== -->
+<span class="object-title">Object 4 (SLIDER ARROWS)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The arrow fade from a white (#EEEDF1) color to an inverted purple color (#6504b5) and scale up by 12% in 0.25 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The arrow eases and reverts back to its original size and color in 0.25 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>When a thumbnail is clicked, it gains a 3px purple outline within 0.25 seconds.</li>
+<li>On the desktop, clicking the top arrow moves the active image upward to the previous thumbnail, while clicking the bottom arrow moves it downward to the next one. On mobile, the arrows switch to left and right, moving through the thumbnails horizontally in the same order.</li>
+<li>Whichever thumbnail is clicked becomes active and updates the main image with a fade in transition of 0.35 seconds</li>
+<hr class="divider">
+
+
+ <!-- ===================== RULES SLIDER IMAGES ===================== -->
+<span class="object-title">Object 5 (SLIDER IMAGES)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The slider image currently hovered on will ease to a 5% scale increase in 0.25 seconds.</li>
+<li>The cursor changes to a pointer.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The arrow eases and reverts back to its original size and color in 0.25 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>When a specific thumbnail is clicked, it gains a 3px purple outline within 0.25 seconds to show it’s active.</li>
+<li>Whichever thumbnail is clicked becomes active and updates the main image with a fade in transition of 0.35 seconds</li>
+<hr class="divider">
+ </section>
+
+
+ <h1 class="rules-title">FEEDBACK</h1>
+
+
+ <!-- ===================== FEEDBACK X LARGE IMAGE ===================== -->
+ <section>
+<span class="object-title">Object 1 (MAIN LARGE IMAGE)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The main image increases in brightness by 15% over 0.35 seconds, creating a subtle highlight that signals interactivity.</li>
+<li>The image scales up by 7% within 0.35 seconds, providing motion feedback that makes it feel more responsive.</li>
+<li>The cursor changes to a pointer, indicating the image is clickable.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The main image returns to its original brightness and size within 0.35 seconds, signaling the end of interactivity.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>When the main image is clicked, the same image source fades in as the lightbox image over 0.35 seconds, shifting heavy focus with the specific image.</li>
+<li>The main image scales up to 101.5% while rising 10px and returns to its original state in 0.65 seconds. This creates a playful, lively effect.</li>
+<li>The paw arrows, navigation dots, and close button fade in around the lightbox within 0.35 seconds.</li>
+<hr class="divider">
+
+
+ <!-- ===================== FEEDBACK LIGHTBOX ARROWS ===================== -->
+<span class="object-title">Object 2 (LIGHTBOX ARROWS)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The selected paw arrow increases to a brightness of 200% within 0.35 seconds, reinforcing its role in gallery navigation.</li>
+<li>The cursor changes to a pointer, indicating the arrow is clickable.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The paw arrow returns to its original brightness and state within 0.35 seconds, signaling the end of interaction.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>The previous image fades out during the transition in the 0.25 seconds and the new one fades in at 0.25 seconds.</li>
+<li>The selected paw arrow will rotate 10 degrees in one direction and then swing back in 0.65 seconds, creating a fun, animated effect.</li>
+<li>The paw arrow shrinks to 80% and returns to 100% in 0.6 seconds, which produces a quick bounce effect.</li>
+<li>The navigation dots fade into a purple hue within 0.5 seconds, updating to indicate the currently active image.</li>
+<hr class="divider">
+
+
+
+
+ <!-- ===================== FEEDBACK X BUTTON ===================== -->
+<span class="object-title">Object 3 (X BUTTON)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The close (X) button decreases in opacity by 35% within 0.4 seconds, visually emphasizing its interactive state.</li>
+<li>The cursor changes to a pointer, signaling the button is clickable.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The close button returns to its original opacity within 0.4 seconds, indicating the interaction has ended.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>The close button moves vertically by 10px and rotates 15° within 0.35 seconds, creating a sense of physical feedback.</li>
+<li>During this transition, the lightbox background, x button, dots, and select image fade out in 0.5 seconds.</li>
+<li>Everything then reverts to the original gallery view, with the last selected lightbox image displayed as the main image.</li>
+<li>The main new selected image will fade in to replace a previous one in 0.35 seconds.</li>
+<hr class="divider">
+
+
+ <!-- ===================== FEEDBACK SLIDER ARROWS ===================== -->
+<span class="object-title">Object 4 (SLIDER ARROWS)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The arrow fade from a white (#EEEDF1) color to an inverted purple color (#6504b5) and scale up by 12% in 0.25 seconds. This gives a color shift visual cue towards how the object is clickable.</li>
+<li>The cursor changes to a pointer, signaling the button is clickable.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The arrow eases and reverts back to its original size and color in 0.25 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>When a thumbnail is clicked, it gains a 3px purple outline within 0.25 seconds to show it’s active.</li>
+<li>On the desktop, clicking the top arrow moves the active image upward to the previous thumbnail, while clicking the bottom arrow moves it downward to the next one. On mobile, the arrows switch to left and right, moving through the thumbnails horizontally in the same order.</li>
+<li>Whichever thumbnail is clicked becomes active and updates the main image with a fade in transition of 0.35 seconds. This helps keeps the flow of consistent animation use.</li>
+<hr class="divider">
+
+
+ <!-- ===================== FEEDBACK SLIDER IMAGES ===================== -->
+<span class="object-title">Object 5 (SLIDER IMAGES)</span>
+
+
+<span class="bold">Hover On</span>
+<li>The slider image currently hovered on will ease to a 5% scale increase in 0.25 seconds.</li>
+<li>The cursor changes to a pointer, signaling the button is clickable.</li><br>
+
+
+<span class="bold">Hover Off</span>
+<li>The arrow eases and reverts back to its original size and color in 0.25 seconds.</li>
+<li>The pointer changes back to a cursor.</li><br>
+
+
+<span class="bold">Click</span>
+<li>When a specific thumbnail is clicked, it gains a 3px purple outline within 0.25 seconds to show it’s active.</li>
+<li>Whichever thumbnail is clicked becomes active and updates the main image with a fade in transition of 0.35 seconds. This helps keeps the flow of consistent animation use.</li>
+<hr class="divider">
+ </section>
+
+
+ <!-- ===================== LOOPS AND MODES ===================== -->
+   <h1 class="rules-title">LOOPS & MODES (Meta-Rules)</h1>
+   <section>
+     <li>The lightbox acts as a mode overlaying the gallery. It dims the
+     background, disables other interactions, and introduces navigation controls until closed.</li>
+   </section>
+
+
+
 
  <!-- ===================== SCRIPTS ===================== -->
  <script src="script.js"></script>
