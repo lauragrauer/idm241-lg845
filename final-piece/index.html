@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Dog Gallery Lightbox + Microinteraction Report</title>
+
+
+ <!-- Fonts -->
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+ <!-- Styles -->
+ <link rel="stylesheet" href="style-final.css" />
+</head>
+
+
+<body>
+
+
+ <!-- ===================== GALLERY SECTION ===================== -->
+ <div class="gallery-container">
+   <div class="gallery">
+
+
+     <!-- MAIN IMAGE -->
+     <div class="main-image" id="mainImage">
+       <img src="/alpha/build/dog-1.webp" alt="Dog1" />
+     </div>
+
+
+<div class="thumbs">
+  <!-- Left arrow -->
+<button class="thumb-switch thumb-left" id="thumbLeft"></button>
+
+
+<img class="active" src="/alpha/build/dog-1.webp" alt="dog1" />
+<img src="/alpha/build/dog-2.webp" alt="dog2" />
+<img src="/alpha/build/dog-3.webp" alt="dog3" />
+<img src="/alpha/build/dog-4.webp" alt="dog4" />
+
+
+<button class="thumb-switch thumb-right" id="thumbRight"></button>
+
+
+</div>
+
+
+   </div>
+ </div>
+
+
+ <!-- ===================== LIGHTBOX OVERLAY ===================== -->
+ <div class="overlay" id="overlay">
+
+
+   <button class="close-btn" id="closeBtn">✕</button>
+
+
+   <button class="paw left" id="leftArrow">
+     <img src="/beta/build/paw-arrow-left.png" alt="Left Arrow Paw">
+   </button>
+
+
+   <img src="" alt="Expanded view" id="overlayImg" />
+
+
+   <button class="paw right" id="rightArrow">
+     <img src="/beta/build/paw-arrow-right.png" alt="Right Arrow Paw">
+   </button>
+
+
+   <div class="dots" id="dots">
+     <div class="dot active"></div>
+     <div class="dot"></div>
+     <div class="dot"></div>
+     <div class="dot"></div>
+   </div>
+
+
+ </div>
+
+ <!-- ===================== SCRIPTS ===================== -->
+ <script src="script.js"></script>
+</body>
+</html>
